@@ -5,5 +5,5 @@ export default function Contact() {
     <ContactContainer>
       <h1>Contact</h1>
     </ContactContainer>
-  );
+  )
 }

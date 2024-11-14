@@ -1,22 +1,17 @@
-import { StyledNavigation, StyledLink, SiteTitleLink, StyledUL } from './index.styled.js'
+import { Outlet } from 'react-router-dom'
+import Navigate from '../Navigate'
+import Footer from '../Footer'
+import { RootContainer } from './index.styled'
 
-export default function Navigation() {
-  return (
-    <StyledNavigation>
-      <SiteTitleLink to='/'>BucketLabs</SiteTitleLink>
-      <StyledUL>
-        <CustomLink to='/about'>About</CustomLink>
-        <CustomLink to='/contact'>Contact</CustomLink>
-        <CustomLink to='/projects'>Projects</CustomLink>
-      </StyledUL>
-    </StyledNavigation>
-  )
-}
+export default function Root() {
 
-function CustomLink({ to, children, ...props }) {
   return (
-    <StyledLink to={to} {...props}>
-      {children}
-    </StyledLink>
-  )
+    <>
+      <RootContainer>
+        <Navigate />
+        <Outlet />
+        <Footer />
+      </RootContainer>
+    </>
+  );
 }

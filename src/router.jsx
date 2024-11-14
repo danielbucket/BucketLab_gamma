@@ -11,6 +11,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <Root />,
     errorElement: <ErrorPage />,
+    //inside Root is where <Outlet /> renders the children of the Navigate component
     children: [
       {
         errorElement: <ErrorPage />,

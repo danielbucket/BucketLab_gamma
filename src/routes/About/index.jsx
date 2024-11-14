@@ -5,5 +5,5 @@ export default function About() {
     <AboutContainer>
       <h1>About</h1>
     </AboutContainer>
-  );
+  )
 }

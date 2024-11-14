@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 
-export const StyledHomePage = styled.div`
-  flex-grow: 1;
+export const HomeContainer = styled.div`
+  grid-area: Content;
   display: flex;
-  flex-direction: column;
+  flex-direction: rows;
   align-items: center;
   justify-content: center;
+
+    img {
+      width: 98%;
+    }
 `;
