@@ -1,6 +1,5 @@
 import styled from 'styled-components';
+import { BasePageLayout } from '../Root/index.styled';
 
-export const AboutContainer = styled.div`
-  grid-area: Content;
-  background-color: #e0e0e0;
+export const AboutContainer = styled(BasePageLayout)`
 `;

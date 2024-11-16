@@ -1,30 +1,30 @@
 import { useEffect, useState } from 'react'
-import { useLoaderData } from 'react-router-dom'
 import { HomeContainer } from './index.styled.js'
+import { fakeLoaderData } from './stub.js'
 import importedImage from '../../assets/images/T100_0724.jpg'
 
 export default function Home() {
-  const [content, setContent] = useState({})
-  const [image, setImage] = useState(null)
-  const data = useLoaderData()
+  const [pageText, setPageText] = useState('')
+  const [pageImage, setPageImage] = useState()
+  const loaderData = fakeLoaderData()
 
   useEffect(() => {
-    setContent(() => data)
-    setImage(() => importedImage)
+    setPageImage(() => importedImage)
+    setPageText(() => loaderData.text)
   }, [])
 
   return (
     <>
       <HomeContainer>
         <div className="header-container">
-          <img src={ image } alt="image of a truck" />
+          <img src={ pageImage } alt="" />
         </div>
         <div className="body-container">
           <div className="text-content-container">
-            {/* <p>{content.text}</p> */}
+            <p>{pageText}</p>
           </div>
         </div>
       </HomeContainer>
     </>
-  );
+  )
 }

@@ -1,13 +1,6 @@
 import styled from 'styled-components'
+import { BasePageLayout } from '../Root/index.styled'
 
-export const HomeContainer = styled.div`
-  grid-area: Content;
-  display: flex;
-  flex-direction: rows;
-  align-items: center;
-  justify-content: center;
+export const HomeContainer = styled(BasePageLayout)`
 
-    img {
-      width: 98%;
-    }
 `;

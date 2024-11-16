@@ -6,7 +6,7 @@ import Contact from './routes/Contact';
 import Projects from './routes/Projects';
 import ErrorPage from './routes/ErrorPage';
 
-const router = createBrowserRouter([
+const routes = [
   {
     path: '/',
     element: <Root />,
@@ -16,7 +16,10 @@ const router = createBrowserRouter([
       {
         errorElement: <ErrorPage />,
         children: [
-          { index: true, element: <Home /> },
+          {
+            index: true,
+            element: <Home />,
+          },
           {
             path: 'about',
             element: <About />,
@@ -28,11 +31,17 @@ const router = createBrowserRouter([
           {
             path: 'projects',
             element: <Projects />,
-          },
-        ],
+          }
+        ]
       }
     ]
   }
-]);
+]
+
+const router = createBrowserRouter(routes, {
+  future: {
+    v7_normalizeFormMethod: true,
+  }
+})
 
 export default router;
