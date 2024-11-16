@@ -8,3 +8,10 @@ export const RootContainer = styled.div`
     [Footer] 10rem;
   height: 100vh;
 `;
+
+export const BasePageLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
