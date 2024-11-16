@@ -7,9 +7,14 @@ export const RootContainer = styled.div`
     [Content] 1fr
     [Footer] 10rem;
   height: 100vh;
+  
+  img {
+    width: 100%;
+  }
 `;
 
 export const BasePageLayout = styled.div`
+  grid-area: Content;
   display: flex;
   flex-direction: column;
   align-items: center;
