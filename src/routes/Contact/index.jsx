@@ -16,7 +16,7 @@ export default function Contact() {
   return (
     <>
       <ContactContainer>
-        <div className="header-container">
+        <div className="img-wrapper">
           <img src={ pageImage } alt="" />
         </div>
         <div className="body-container">

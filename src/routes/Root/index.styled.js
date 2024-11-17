@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const RootContainer = styled.div`
   display: grid;
@@ -7,11 +7,18 @@ export const RootContainer = styled.div`
     [Content] 1fr
     [Footer] 10rem;
   height: 100vh;
+  background-color: var(--ac-green-opaque);
+  
+  .img-wrapper {
+    display: flex;
+    width: 100%;
+    padding: .75rem;
+  }
   
   img {
     width: 100%;
   }
-`;
+`
 
 export const BasePageLayout = styled.div`
   grid-area: Content;
@@ -19,4 +26,4 @@ export const BasePageLayout = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
+`

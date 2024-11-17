@@ -4,12 +4,16 @@ export default function Navigate() {
   return (
     <>
       <NavContainer>
-        <SiteTitleLink to='/'>BucketLabs</SiteTitleLink>
-        <StyledUL>
-          <CustomLink to='/about'>About</CustomLink>
-          <CustomLink to='/contact'>Contact</CustomLink>
-          <CustomLink to='/projects'>Projects</CustomLink>
-        </StyledUL>
+        <div>
+          <SiteTitleLink to='/'>BucketLab</SiteTitleLink>
+        </div>
+        <div>
+          <StyledUL>
+            <CustomLink to='/about'>About</CustomLink>
+            <CustomLink to='/contact'>Contact</CustomLink>
+            <CustomLink to='/projects'>Projects</CustomLink>
+          </StyledUL>
+        </div>
       </NavContainer>
     </>
   )

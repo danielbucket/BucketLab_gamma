@@ -17,7 +17,7 @@ export default function Projects() {
   return (
     <>
       <ProjectsContainer>
-        <div className="header-container">
+        <div className="img-wrapper">
           <img src={ pageImage } alt="" />
         </div>
         <div className="body-container">

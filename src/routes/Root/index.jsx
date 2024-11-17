@@ -1,17 +1,16 @@
 import { Outlet } from 'react-router-dom'
 import Navigate from '../Navigate'
 import Footer from '../Footer'
-import { RootContainer, BasePageLayout } from './index.styled'
+import { RootContainer } from './index.styled'
 
 export default function Root() {
-
   return (
     <>
       <RootContainer>
-        <Navigate Layout={BasePageLayout}/>
-        <Outlet Layout={BasePageLayout}/>
-        <Footer Layout={BasePageLayout}/>
+        <Navigate />
+        <Outlet /> 
+        <Footer />
       </RootContainer>
     </>
-  );
+  )
 }
