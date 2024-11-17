@@ -19,7 +19,7 @@ export default function Home() {
         <div className="img-wrapper">
           <img src={ pageImage } alt="" />
         </div>
-        <div className="body-container">
+        <div className="page-body-container">
           <div className="text-content-container">
             <p>{pageText}</p>
           </div>

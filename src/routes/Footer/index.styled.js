@@ -7,7 +7,8 @@ export const FooterContainer = styled.footer`
   align-items: center;
   font-family: Ubuntu_Reg;
   font-size: 1.25rem;
-  width: 100vw;
   box-shadow: 0 0 .5rem .25rem black;
   background-color: #f0f0f0;
+  position: sticky;
+  bottom: 0;
 `;

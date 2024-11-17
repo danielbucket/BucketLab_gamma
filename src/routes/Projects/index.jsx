@@ -20,9 +20,9 @@ export default function Projects() {
         <div className="img-wrapper">
           <img src={ pageImage } alt="" />
         </div>
-        <div className="body-container">
+        <div className="page-body-container">
           <div className="text-content-container">
-            <p>{repotList}</p>
+            <p>repo list</p>
           </div>
         </div>
       </ProjectsContainer>

@@ -12,6 +12,7 @@ export default function Navigate() {
             <CustomLink to='/about'>About</CustomLink>
             <CustomLink to='/contact'>Contact</CustomLink>
             <CustomLink to='/projects'>Projects</CustomLink>
+            <CustomLink to='/homelab'>HomeLab</CustomLink>
           </StyledUL>
         </div>
       </NavContainer>

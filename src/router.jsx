@@ -3,6 +3,7 @@ import Root from './routes/Root'
 import Home from './routes/Home'
 import About from './routes/About'
 import Contact from './routes/Contact'
+import HomeLab from './routes/HomeLab'
 import Projects from './routes/Projects'
 import ErrorPage from './routes/ErrorPage'
 
@@ -36,6 +37,11 @@ const routes = [
             path: 'projects',
             // component: Projects, // v7 future feature
             element: <Projects />,
+          },
+          {
+            path: 'homelab',
+            // component: HomeLab, // v7 future feature
+            element: <HomeLab />,
           }
         ]
       }

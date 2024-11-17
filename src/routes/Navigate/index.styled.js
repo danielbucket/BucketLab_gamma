@@ -12,8 +12,7 @@ export const NavContainer = styled.nav`
   width: 100vw;
   box-shadow: 0 0 .5rem .25rem #0e66f0eb;
   background-color: var(--special-blue);
-
-  
+  postion: fixed;
 `
 
 
@@ -38,10 +37,9 @@ export const SiteTitleLink = styled(StyledLink)`
 
 export const StyledUL = styled.ul`
   display: flex;
-  // justify-content: end;
   gap: 0.5rem;
   flex-grow: 1;
   list-style: none;
-  font-size: 2rem;
+  font-size: 1.75rem;
   padding: 0;
 `
