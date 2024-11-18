@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 export const StyledFooter = styled.footer`
+  box-shadow: 0 0 .5rem .25rem #0e66f0eb;
   grid-area: Footer;
   display: flex;
   width: 100%;
-  margin: auto;
 `
 
 export const StyledLink = styled(Link)`
@@ -16,7 +16,7 @@ export const StyledLink = styled(Link)`
   margin: auto;
 
   & img {
-    height: 6rem;
+    height: 5rem;
   }
 
   & p {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { HomeContainer } from './index.styled.js'
 import { fakeLoaderData } from './stub.js'
-import importedImage from '../../assets/images/T100_0724.jpg'
+import importedImage from '../../assets/images/laboratory_04.jpeg'
 
 export default function Home() {
   const [pageText, setPageText] = useState('')

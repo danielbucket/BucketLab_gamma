@@ -13,25 +13,9 @@ export default function Projects() {
     setRepoList(() => loaderData)
   }
   , [])
-
-  const renderRepoList = () => {
-    return (
-      <>
-        <StyledUL>
-          {
-            repotList.map((repo, index) => {
-              return (
-                <li key={index}>
-                  <CustomLink to={repo.url}>{repo.repo}</CustomLink>
-                </li>
-              )
-            })
-          }  
-        </StyledUL>
-      </>
-    )
-  }
   
+  const repoList = renderRepoList(repotList)
+
   return (
     <>
       <ProjectsContainer>
@@ -40,7 +24,7 @@ export default function Projects() {
         </div>
         <div className="page-body-container">
           <p>Some of my projects...</p>
-          { renderRepoList() }
+          { repoList }
         </div>
       </ProjectsContainer>
     </>
@@ -52,5 +36,23 @@ function CustomLink({ to, children, ...props }) {
     <StyledLink to={to} {...props}>
       {children}
     </StyledLink>
+  )
+}
+
+function renderRepoList(repotArr) {
+  return (
+    <>
+      <StyledUL>
+        {
+          repotArr.map((repo, index) => {
+            return (
+              <li key={index}>
+                <CustomLink to={repo.url}>{repo.repo}</CustomLink>
+              </li>
+            )
+          })
+        }  
+      </StyledUL>
+    </>
   )
 }

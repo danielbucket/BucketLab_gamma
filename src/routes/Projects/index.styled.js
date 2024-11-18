@@ -8,17 +8,24 @@ export const ProjectsContainer = styled(BasePageLayout)`
   justify-content: center;
   align-items: center;
 
+  .page-body-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+  }
 `
 
 export const StyledUL = styled.ul`
-  border: 3px solid red;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
   list-style: none;
+  font-family: Ubuntu_Reg;
   font-size: 2rem;
   padding: 0;
 `

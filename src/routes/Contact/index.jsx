@@ -20,9 +20,7 @@ export default function Contact() {
           <img src={ pageImage } alt="" />
         </div>
         <div className="page-body-container">
-          <div className="text-content-container">
-            <p>{pageText}</p>
-          </div>
+          <p>{pageText}</p>
         </div>
       </ContactContainer>
     </>
