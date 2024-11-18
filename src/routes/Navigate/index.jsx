@@ -4,10 +4,10 @@ export default function Navigate() {
   return (
     <>
       <NavContainer>
-        <div>
-          <SiteTitleLink to='/'>BucketLab</SiteTitleLink>
+        <div className='title'>
+          <SiteTitleLink to='/'>bucketlab.io</SiteTitleLink>
         </div>
-        <div>
+        <div className='list'>
           <StyledUL>
             <CustomLink to='/about'>About</CustomLink>
             <CustomLink to='/contact'>Contact</CustomLink>

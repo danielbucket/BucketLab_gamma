@@ -1,7 +1,7 @@
 import {useEffect, useState } from 'react'
-import  { ProjectsContainer } from './index.styled'
+import  { ProjectsContainer, StyledLink, StyledUL } from './index.styled'
 import { fakeLoaderData } from './stub.js'
-import importedImage from '../../assets/images/selfi_klr250.jpg'
+import importedImage from '../../assets/images/laboratory_02.jpeg'
 
 export default function Projects() {
   const [repotList, setRepoList] = useState([])
@@ -10,9 +10,27 @@ export default function Projects() {
 
   useEffect(() => {
     setPageImage(() => importedImage)
-    setRepoList(() => loaderData.repoList)
+    setRepoList(() => loaderData)
   }
   , [])
+
+  const renderRepoList = () => {
+    return (
+      <>
+        <StyledUL>
+          {
+            repotList.map((repo, index) => {
+              return (
+                <li key={index}>
+                  <CustomLink to={repo.url}>{repo.repo}</CustomLink>
+                </li>
+              )
+            })
+          }  
+        </StyledUL>
+      </>
+    )
+  }
   
   return (
     <>
@@ -21,11 +39,18 @@ export default function Projects() {
           <img src={ pageImage } alt="" />
         </div>
         <div className="page-body-container">
-          <div className="text-content-container">
-            <p>repo list</p>
-          </div>
+          <p>Some of my projects...</p>
+          { renderRepoList() }
         </div>
       </ProjectsContainer>
     </>
+  )
+}
+
+function CustomLink({ to, children, ...props }) {
+  return (
+    <StyledLink to={to} {...props}>
+      {children}
+    </StyledLink>
   )
 }

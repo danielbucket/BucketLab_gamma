@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { HomeLabContainer } from './index.styled.js'
 import { fakeLoaderData } from './stub.js'
-import importedImage from '../../assets/images/laboratory.jpeg'
+import importedImage from '../../assets/images/laboratory_01.jpeg'
 
 export default function HomeLab() {
   const [pageText, setPageText] = useState('')

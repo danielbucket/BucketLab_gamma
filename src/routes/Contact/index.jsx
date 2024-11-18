@@ -1,7 +1,7 @@
 import { ContactContainer } from './index.styled'
 import { useEffect, useState } from 'react'
 import { fakeLoaderData } from './stub'
-import importedImage from '../../assets/images/steely.jpg'
+import importedImage from '../../assets/images/laboratory_03.jpeg'
 
 export default function Contact() {
   const [pageText, setPageText] = useState('')

@@ -17,11 +17,10 @@ export const BasePageLayout = styled.div`
 
   .page-body-container {
     flex-grow: 1;
-    background-color: lime;
   }
 
   .img-wrapper {
-    max-height: 25rem;
+    // max-height: 25rem;
     display: flex;
     justify-content: center;
     padding: .75rem;
@@ -29,6 +28,7 @@ export const BasePageLayout = styled.div`
     img {
       border-radius: .5rem;
       width: 100%;
+      box-shadow: 0 0 .5rem .25rem #0e66f0eb;
     }
   }
 `
