@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { HomeContainer } from './index.styled.js'
+import { HomeContainer, StyledModalWrapper } from './index.styled.js'
 import { fakeLoaderData } from './stub.js'
 import importedImage from '../../assets/images/laboratory_04.jpeg'
 
@@ -16,9 +16,9 @@ export default function Home() {
   return (
     <>
       <HomeContainer>
-        <div className="img-wrapper">
-          <img src={ pageImage } alt="" />
-        </div>
+        <StyledModalWrapper>
+          <img className='modal-image' src={ pageImage } />
+        </StyledModalWrapper>
         <div className="page-body-container">
           <p>{pageText}</p>
         </div>

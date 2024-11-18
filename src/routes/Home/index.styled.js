@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import { BasePageLayout } from '../Root/index.styled'
+import { BasePageLayout, ModalWrapper } from '../Root/index.styled'
 
-export const HomeContainer = styled(BasePageLayout)`
-
-`;
+export const StyledModalWrapper = styled(ModalWrapper)``
+export const HomeContainer = styled(BasePageLayout)``

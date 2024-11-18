@@ -5,11 +5,9 @@ export default function Footer() {
 
   return (
     <StyledFooter>
-      <StyledLink to='https://github.com/danielbucket'>
-        <img src={ githubIcon } alt='GitHub icon' />
-        <p>@danielBucket <span>© 2024</span></p>
-        <img src={linkedInIcon} />
-      </StyledLink>
+      <StyledLink to='https://github.com/danielbucket'><img src={ githubIcon } alt='GitHub icon' /></StyledLink>
+      <p>@danielBucket <span>© 2024</span></p>
+      <StyledLink to='https://www.linkedin.com/in/daniel-ludwick/'><img src={ linkedInIcon } alt='LinkedIn icon'/></StyledLink>
     </StyledFooter>
   )
 }

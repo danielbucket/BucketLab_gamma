@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { BasePageLayout } from '../Root/index.styled';
+import styled from 'styled-components'
+import { BasePageLayout, ModalWrapper } from '../Root/index.styled'
 
 export const ContactContainer = styled(BasePageLayout)`
  .page-body-container p {
@@ -7,4 +7,6 @@ export const ContactContainer = styled(BasePageLayout)`
     padding: 1rem;
     font-family: 'Roboto', sans-serif;
   }
-`;
+`
+
+export const StyledModalWrapper = styled(ModalWrapper)``

@@ -45,7 +45,6 @@ export const StyledUL = styled.ul`
 
   justify-content: space-evenly;
   gap: 0.5rem;
-  flex-grow: 1;
   list-style: none;
   font-size: 1.75rem;
   padding: 0;

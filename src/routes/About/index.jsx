@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { AboutContainer } from './index.styled'
+import { AboutContainer, StyledModalWrapper } from './index.styled.js'
 import { fakeLoaderData } from './stub.js'
-import importedImage from '../../assets/images/danielBucket.jpg'
+import importedImage from '../../assets/images/danielBucket_ai_01.jpeg'
 
 export default function About() {
   const [pageText, setPageText] = useState('')
@@ -16,9 +16,9 @@ export default function About() {
   return (
     <>
       <AboutContainer>
-        <div className="img-wrapper">
-          <img src={ pageImage } alt="" />
-        </div>
+        <StyledModalWrapper className="img-wrapper">
+          <img className='modal-image' src={ pageImage } />
+        </StyledModalWrapper>
         <div className="page-body-container">
           <div className="text-content-container">
             <p>{pageText}</p>
