@@ -1,5 +1,6 @@
 export const fakeLoaderData = () => {
   return {
-    text: 'Solving all the worlds problems, one bucket of code at a time.',
+    quote: 'Solving all the worlds problems, one bucket of code at a time.',
+    author: 'The Code Bucket',
   }
 }

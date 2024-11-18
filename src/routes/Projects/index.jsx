@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ProjectsContainer, StyledLink, StyledUL, RepoPopup, StyledModalWrapper } from './index.styled.js'
+import { ProjectsContainer, ContentWrapper, StyledLink, StyledUL, ModalWrapper } from './index.styled.js'
 import { fakeLoaderData } from './stub.js'
 import importedImage from '../../assets/images/laboratory_02.jpeg'
 
@@ -19,18 +19,18 @@ export default function Projects() {
     repot === null ? setActiveRepo(null) : setActiveRepo(repot)
   }
 
-  function renderRepoList(repotArr) {
+  function renderRepoList(arr) {
     return (
       <StyledUL
         onMouseLeave={() => handleHover(null, false)}
       >
         {
-          repotArr.map((repo, index) => {
+          arr.map((repo, i) => {
             return (
-              <li key={ index }>
+              <li key={i}>
                 <CustomLink
                   to={ repo.url }
-                  onMouseEnter={ () => handleHover(repo) }
+                  onMouseEnter={() => handleHover(repo)}
                 >{ repo.repo }</CustomLink>
               </li>
             )
@@ -45,24 +45,25 @@ export default function Projects() {
   return (
     <>
       <ProjectsContainer>
-        <StyledModalWrapper>
-          {
-            activeRepo === null
-            ? (
-                <img className='modal-image' src={ pageImage }/>
-              )
-            : (
-              <RepoPopup>
-                <h3>{activeRepo.repo}</h3>
-                <p>{activeRepo.description}</p>
-              </RepoPopup>
+        {
+          activeRepo === null
+          ? (
+              <ModalWrapper>
+                <img id="modalImage" src={ pageImage }/>
+              </ModalWrapper>
             )
-          }
-        </StyledModalWrapper>
-        <div className="page-body-container">
-          <p>Some of my projects...</p>
+          : (
+              <ModalWrapper>
+                <div className='repo-modal'>
+                  <p>{activeRepo.repo}</p>
+                  <p>{activeRepo.description}</p>
+                </div>
+              </ModalWrapper>
+            )
+        }
+        <ContentWrapper>
           { repoList }
-        </div>
+        </ContentWrapper>
       </ProjectsContainer>
     </>
   )

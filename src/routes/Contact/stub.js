@@ -1,5 +1,5 @@
 export const fakeLoaderData = () => {
   return {
-    text: 'Thanks for checking out my webiste! Click here if you\'d like to send me a message.',
+    text: 'Thanks for visiting my laboratory! I\'m currently building a contact form for this page. In the meantime, feel free to reach out to me on LinkedIn. I look forward to hearing from you!',
   }
 }

@@ -10,19 +10,24 @@ export const BasePageLayout = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-
-  .page-body-container {
-    flex-grow: 1;
-  }
 `
-export const ModalWrapper = styled.div`
+    
+export const ContentContainer = styled.div`
   display: flex;
   justify-content: center;
-  height: 35rem;
+  padding: 1rem;
+  width: 100%;
+  height: 13rem;
+`
+  
+export const ModalContainer = styled.div`
+  display: flex;
+  justify-content: center;
   padding: .75rem;
 
-  .modal-image {
+  #modalImage {
     border-radius: .5rem;
     box-shadow: 0 0 .5rem .25rem #0E66F0EB;
+    width: 100%;
   }
 `

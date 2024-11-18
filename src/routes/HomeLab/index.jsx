@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { HomeLabContainer, StyledModalWrapper } from './index.styled.js'
+import { HomeLabContainer, ModalWrapper, ContentWrapper } from './index.styled.js'
 import { fakeLoaderData } from './stub.js'
 import importedImage from '../../assets/images/laboratory_01.jpeg'
 
@@ -16,14 +16,12 @@ export default function HomeLab() {
   return (
     <>
       <HomeLabContainer>
-        <StyledModalWrapper>
-          <img className='modal-image' src={ pageImage } />
-        </StyledModalWrapper>
-        <div className="page-body-container">
-          <div className="text-content-container">
-            <p>{pageText}</p>
-          </div>
-        </div>
+        <ModalWrapper>
+          <img id="modalImage" src={ pageImage } />
+        </ModalWrapper>
+        <ContentWrapper>
+          <p>{pageText}</p>
+        </ContentWrapper>
       </HomeLabContainer>
     </>
   )

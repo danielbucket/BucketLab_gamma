@@ -2,22 +2,22 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 export const NavContainer = styled.nav`
-  grid-area: Navigate;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.5rem 0.25rem;
-  margin-bottom: 0.5rem;
-  font-family: Ubuntu_Reg;
-  box-shadow: 0 0 .5rem .25rem #0e66f0eb;
-  background-color: var(--special-blue);
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0.5rem 0.25rem;
+margin-bottom: 0.5rem;
+font-family: Ubuntu_Reg;
+box-shadow: 0 0 .5rem .25rem #0e66f0eb;
+background-color: var(--special-blue);
+height: 10rem;
 
   .title {
     height: 6rem;
-    }
+  }
     
-    .list {
-      height: 4rem;
+  .list {
+    height: 4rem;
       
     & ul li.active {
       background-color: #0e66f0eb;

@@ -1,12 +1,13 @@
 import styled from 'styled-components'
-import { BasePageLayout, ModalWrapper } from '../Root/index.styled'
+import { BasePageLayout, ModalContainer, ContentContainer } from '../Root/index.styled'
 
-export const ContactContainer = styled(BasePageLayout)`
- .page-body-container p {
-    font-size: 1.5rem;
-    padding: 1rem;
-    font-family: 'Roboto', sans-serif;
-  }
+export const ContactContainer = styled(BasePageLayout)``
+export const ModalWrapper = styled(ModalContainer)``
+export const ContentWrapper = styled(ContentContainer)`
+  font-family: Roboto;
+  font-size: 1.75rem;
+  text-align: center;
+
+  justify-content: center;
+  align-items: center;
 `
-
-export const StyledModalWrapper = styled(ModalWrapper)``

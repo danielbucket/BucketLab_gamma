@@ -1,5 +1,5 @@
-import { ContactContainer, StyledModalWrapper } from './index.styled.js'
 import { useEffect, useState } from 'react'
+import { ContactContainer, ModalWrapper, ContentWrapper } from './index.styled.js'
 import { fakeLoaderData } from './stub.js'
 import importedImage from '../../assets/images/laboratory_03.jpeg'
 
@@ -16,12 +16,12 @@ export default function Contact() {
   return (
     <>
       <ContactContainer>
-        <StyledModalWrapper>
-          <img className='modal-image' src={ pageImage } />
-        </StyledModalWrapper>
-        <div className="page-body-container">
+        <ModalWrapper>
+          <img id="modalImage" src={ pageImage } />
+        </ModalWrapper>
+        <ContentWrapper>
           <p>{pageText}</p>
-        </div>
+        </ContentWrapper>
       </ContactContainer>
     </>
   )
