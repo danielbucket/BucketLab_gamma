@@ -13,6 +13,10 @@ export default function HomeLab() {
     setPageText(() => loaderData.text)
   }, [])
 
+  const handleClick = () => {
+    
+  }
+
   return (
     <>
       <HomeLabContainer>
@@ -20,7 +24,7 @@ export default function HomeLab() {
           <img id="modalImage" src={ pageImage } />
         </ModalWrapper>
         <ContentWrapper>
-          <p>{pageText}</p>
+          <button onClick={() => handleClick()}>Log into the <br/> Laboratory</button>
         </ContentWrapper>
       </HomeLabContainer>
     </>
