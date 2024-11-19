@@ -29,29 +29,38 @@ export const StyledLink = styled(Link)`
 `
 
 export const ModalWrapper = styled(ModalContainer)`
-  height: 100%;
-
-  .repo-modal {
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
-    justify-content: start;
-    border-radius: .5rem;
-    box-shadow: 0 0 .5rem .25rem #0E66F0EB;
-    padding: 1rem;
-    align-items: center;
-
-    & p:first-child {
-      font-size: 2.5rem;
-      font-weight: bold;
-      font-family: Orbitron;
-      border-bottom: 0.1rem solid var(--special-blue);
-    }
-      
-    & p:last-child {
-      padding-top: 2rem;
-      font-size: 1.75rem;
+  flex-direction: column;
+  justify-content: start;
+  
+  & p:first-child {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: Orbitron;
+    border-bottom: 0.1rem solid var(--special-blue);
+  }
+    
+    & p:nth-child(2) {
+      padding: 1rem;
+      font-size: 2rem;
       font-family: Roboto;
+      text-indent: 2rem hanging;
+
+    span {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: start;
     }
+  }
+    
+  & p:last-child {
+    padding-top: 2rem;
+    padding-left: 2rem;
+    font-size: 2rem;
+    font-family: Roboto;
+    text-indent: 2rem hanging;
+
+    span {
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 `

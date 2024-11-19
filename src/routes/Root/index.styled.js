@@ -11,23 +11,26 @@ export const BasePageLayout = styled.div`
   display: flex;
   flex-direction: column;
 `
-    
-export const ContentContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  width: 100%;
-  height: 13rem;
-`
-  
+
 export const ModalContainer = styled.div`
   display: flex;
-  justify-content: center;
   padding: .75rem;
+  height: 40rem;
 
   #modalImage {
     border-radius: .5rem;
     box-shadow: 0 0 .5rem .25rem #0E66F0EB;
     width: 100%;
+    max-width: 40rem;
+    margin: auto;
   }
 `
+  
+  export const ContentContainer = styled.div`
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+  `

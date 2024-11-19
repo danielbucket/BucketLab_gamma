@@ -14,7 +14,7 @@ export default function HomeLab() {
   }, [])
 
   const handleClick = () => {
-    
+    throw window.alert('This is not the laboratory you are looking for.')
   }
 
   return (

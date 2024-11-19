@@ -7,14 +7,14 @@ export const ContentWrapper = styled(ContentContainer)`
   flex-direction: column;
 
   & p:first-child {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
     font-family: Roboto;
     text-indent: 1rem;
   }
     
   & p:last-child {
     padding-top: 0.5rem;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-family: Orbitron;
     font-weight: bold;
     text-align: right;

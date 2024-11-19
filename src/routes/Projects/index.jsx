@@ -54,10 +54,9 @@ export default function Projects() {
             )
           : (
               <ModalWrapper>
-                <div className='repo-modal'>
-                  <p>{activeRepo.repo}</p>
-                  <p>{activeRepo.description}</p>
-                </div>
+                <p>{activeRepo.repo}</p>
+                <p>Description: <br></br><span>{activeRepo.description}</span></p>
+                <p>Technology: <br></br><span>{activeRepo.techstack.map((i) => `${i}, `)}</span></p>
               </ModalWrapper>
             )
         }
