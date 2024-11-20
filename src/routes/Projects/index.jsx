@@ -30,6 +30,7 @@ export default function Projects() {
               <li key={i}>
                 <CustomLink
                   to={ repo.url }
+                  target="_blank"
                   onMouseEnter={() => handleHover(repo)}
                 >{ repo.repo }</CustomLink>
               </li>
