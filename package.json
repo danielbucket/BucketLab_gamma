@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development vite",
     "build": "NODE_ENV='production' vite build",
+    "start": "NODE_ENV='production' PORT='4020' node server.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
