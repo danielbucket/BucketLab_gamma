@@ -10,6 +10,15 @@ export const BasePageLayout = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+
+  animation: fadeIn 0.35s;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    } to {
+      opacity: 1;
+    }
+  }
 `
 
 export const ModalContainer = styled.div`
