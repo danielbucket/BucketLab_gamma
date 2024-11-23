@@ -28,10 +28,10 @@ export const StyledLink = styled(Link)`
   }
 `
 
-export const ModalWrapper = styled(ModalContainer)`
+export const ModalWrapper = styled(ModalContainer)` 
   flex-direction: column;
   justify-content: start;
-  
+
   & p:first-child {
     font-size: 2.5rem;
     font-weight: bold;
