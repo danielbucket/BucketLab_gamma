@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Root from './routes/Root'
 import Home from './routes/Home'
+import Login from './routes/Login'
 import About from './routes/About'
 import Contact from './routes/Contact'
 import HomeLab from './routes/HomeLab'
@@ -42,6 +43,11 @@ const routes = [
             path: 'homelab',
             // component: HomeLab, // v7 future feature
             element: <HomeLab />,
+          },
+          {
+            path: 'homelab/login',
+            // component: Login, // v7 future feature
+            element: <Login />,
           }
         ]
       }
