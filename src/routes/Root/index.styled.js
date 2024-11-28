@@ -4,6 +4,7 @@ export const RootContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  padding: .25rem;
 `
 
 export const BasePageLayout = styled.div`
