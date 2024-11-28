@@ -8,7 +8,7 @@ export default function Footer() {
       <StyledLink to='https://github.com/danielbucket' target='_blank'>
         <img src={ githubIcon } alt='GitHub icon' />
       </StyledLink>
-      <p>@danielBucket <span>© 2024</span></p>
+      <p><span>BucketLimited © 2024</span></p>
       <StyledLink to='https://www.linkedin.com/in/daniel-ludwick/' target='_blank'>
         <img src={ linkedInIcon } alt='LinkedIn icon'/>
       </StyledLink>

@@ -75,6 +75,7 @@ export default function Login() {
               onChange={(e) => handleChange(e)}
               />
             <input type='submit' />
+            <button onClick={() => navigate(-1)}>Cancel</button>
           </form>
         </LoginWrapper>
       </LoginContainer>
