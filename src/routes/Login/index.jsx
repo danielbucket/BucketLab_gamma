@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { LoginContainer, LoginWrapper } from './index.styled.js'
+const { VITE_BUCKETLAB_SERVER } = import.meta.env
 
 export default function Login() {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState([])
   const navigate = useNavigate()
+
+  useEffect(() => {},[])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -22,18 +25,19 @@ export default function Login() {
       setErrors({ ...errors, password: 'Password must be at least 8 characters' })
     }
 
-    // fetch('http://localhost:3000/login', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({ userName, password })
-    // })
-    // .then((res) => res.json())
-    // .then((data) => {
-    //   console.log(data)
-    // })
-    // .catch((err) => console.log(err))
+    fetch(`${VITE_BUCKETLAB_SERVER}/api/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'token': 'I-be-token'
+      },
+      body: JSON.stringify({ userName, password })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log('Fetch Sucess: ', data)
+    })
+    .catch((err) => console.log('Fetch Fail: ', err))
 
     if (userName !== '' && password !== '' && password.length >= 8) {
       navigate('/', {
