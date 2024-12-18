@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { HomeContainer, ModalWrapper, ContentWrapper } from './index.styled.js'
-import TypeWriter from '../utils/TypeWriterEffect.jsx'
 import { fakeLoaderData } from './stub.js'
+import TypeWriter from '../utils/TypeWriterEffect.jsx'
 import importedImage from '../../assets/images/laboratory_04.jpeg'
 
 export default function Home() {
@@ -14,7 +14,6 @@ export default function Home() {
     setPageText(() => loaderData)
   }, [])
 
-  const { quote, author } = pageText
   return (
     <>
       <HomeContainer>
@@ -22,8 +21,8 @@ export default function Home() {
           <img id="modalImage" src={ pageImage } />
         </ModalWrapper>
         <ContentWrapper>
-          <TypeWriter text={quote} />
-          <TypeWriter text={author} />
+          <TypeWriter text={pageText.quote} speed={50} />
+          <p>-{pageText.author}</p>
         </ContentWrapper>
       </HomeContainer>
     </>

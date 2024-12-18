@@ -56,8 +56,8 @@ export default function Projects() {
           : (
               <ModalWrapper>
                 <p>{activeRepo.repo}</p>
-                <p>Description: <br></br><span>{activeRepo.description}</span></p>
-                <p>Tech Stack: <br></br><span>{activeRepo.techstack.map((i) => `${i}, `)}</span></p>
+                <p>Description: <br/><span>{activeRepo.description}</span></p>
+                <p>Tech Stack: <br/><span>{activeRepo.techstack.map((i) => `${i}, `)}</span></p>
               </ModalWrapper>
             )
         }

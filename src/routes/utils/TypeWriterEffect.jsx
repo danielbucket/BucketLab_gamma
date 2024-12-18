@@ -1,26 +1,29 @@
 import { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 
-function TypeWriter({ text }) {
-  const [currentText, setCurrentText] = useState("")
+const TypeWriter = ({ text, speed }) => {
+  const [typedText, setTypedText] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setCurrentText((prevText) => prevText + text[currentIndex])
+    const intervalId = setInterval(() => {
+      if (currentIndex < text.length) {
+        setTypedText((prevText) => prevText + text.charAt(currentIndex))
         setCurrentIndex((prevIndex) => prevIndex + 1)
-      }, 50);
+      } else {
+        clearInterval(intervalId)
+      }
+    }, speed)
 
-      return () => clearTimeout(timeout)
-    }
-  }, [currentIndex, text])
+    return () => clearInterval(intervalId)
+  }, [currentIndex, text, speed])
 
-  return <p>{currentText}</p>;
-}
+  return <p>{typedText}</p>
+};
 
 TypeWriter.propTypes = {
   text: PropTypes.string.isRequired,
+  speed: PropTypes.number.isRequired
 }
 
 export default TypeWriter
