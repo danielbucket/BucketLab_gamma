@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { BasePageLayout, ContentContainer } from '../Root/index.styled'
 
-export const LoginContainer = styled(BasePageLayout)``
-export const LoginWrapper = styled(ContentContainer)`
-  flex-direction: column;
+export const UserRegistrationContainer = styled(BasePageLayout)``
+export const UserRegistrationWrapper = styled(ContentContainer)`
+flex-direction: column;
   justify-content: start;
   margin-top: 5rem;
   

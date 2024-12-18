@@ -9,10 +9,10 @@ export default function Navigate() {
         </div>
         <div className='list'>
           <StyledUL>
-            <CustomLink to='/about'>About</CustomLink>
-            <CustomLink to='/contact'>Contact</CustomLink>
-            <CustomLink to='/projects'>Projects</CustomLink>
-            <CustomLink to='/homelab'>HomeLab</CustomLink>
+            <CustomLink to='../about'>About</CustomLink>
+            <CustomLink to='../contact'>Contact</CustomLink>
+            <CustomLink to='../projects'>Projects</CustomLink>
+            <CustomLink to='../homelab'>HomeLab</CustomLink>
           </StyledUL>
         </div>
       </NavContainer>

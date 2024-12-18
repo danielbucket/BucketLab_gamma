@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { LoginContainer, LoginWrapper } from './index.styled.js'
+import { formValidate } from '../utils/formValidate.js'
+
 const { VITE_BUCKETLAB_SERVER } = import.meta.env
 
 export default function Login() {
@@ -9,7 +11,9 @@ export default function Login() {
   const [errors, setErrors] = useState([])
   const navigate = useNavigate()
 
-  useEffect(() => {},[])
+  useEffect(() => {
+    console.log('Errors: ', errors)
+  }, [errors])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -61,7 +65,7 @@ export default function Login() {
     <>
       <LoginContainer>
         <LoginWrapper>
-          <form onSubmit={(data) => handleSubmit(data)}>
+          <form onSubmit={data => handleSubmit(data)}>
             <label>Username</label>
             <input
               type='text'
@@ -81,6 +85,10 @@ export default function Login() {
             <input type='submit' />
             <button onClick={() => navigate(-1)}>Cancel</button>
           </form>
+          <div className='register-new'>
+            <p>Don't have an account?</p>
+            <button onClick={() => navigate('/homelab/register')}>Make one Here</button>
+          </div>
         </LoginWrapper>
       </LoginContainer>
     </>
