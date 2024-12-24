@@ -6,7 +6,7 @@ import { formValidate } from '../utils/formValidate.js'
 const { VITE_BUCKETLAB_SERVER } = import.meta.env
 
 export default function Login() {
-  const [userName, setUserName] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState([])
   const [message, setMessage] = useState('')
@@ -21,17 +21,17 @@ export default function Login() {
 
   useEffect(() => {
     if (location.state?.email && location.state?.message) {
-      setUserName(() => location.state.email)
+      setEmail(() => location.state.email)
       setMessage(() => location.state.message)
     }
   }, [location.state])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setErrors({ username: '', password: '' })
+    setErrors({ email: '', password: '' })
 
-    if (userName === '') {
-      setErrors({ ...errors, username: 'Username is required' })
+    if (email === '') {
+      setErrors({ ...errors, email: 'Email is required' })
     }
     if (password === '') {
       setErrors({ ...errors, password: 'Password is required' })
@@ -46,7 +46,7 @@ export default function Login() {
         'Content-Type': 'application/json',
         'token': 'I-be-token'
       },
-      body: JSON.stringify({ userName, password })
+      body: JSON.stringify({ email, password })
     })
     .then(res => res.json())
     .then(data => {
@@ -54,9 +54,9 @@ export default function Login() {
     })
     .catch((err) => console.log('Fetch Fail: ', err))
 
-    if (userName !== '' && password !== '' && password.length >= 8) {
+    if (email !== '' && password !== '' && password.length >= 8) {
       navigate('/', {
-        state: { userName }
+        state: { email }
       })
     }
   }
@@ -64,8 +64,8 @@ export default function Login() {
   const handleChange = (e) => {
     const { name, value } = e.target
 
-    if (name === 'username') {
-      setUserName(() => value)
+    if (name === 'email') {
+      setEmail(() => value)
     }
     if (name === 'password') {
       setPassword(() => value)
@@ -80,12 +80,12 @@ export default function Login() {
             message !== '' ? <div>{message}</div> : null
           }
           <form onSubmit={data => handleSubmit(data)}>
-            <label>Username</label>
+            <label>Email</label>
             <input
               type='text'
-              value={userName}
-              placeholder='Username'
-              name='username'
+              value={email}
+              placeholder='Email'
+              name='email'
               onChange={(e) => handleChange(e)}
               />
             <label>Password</label>

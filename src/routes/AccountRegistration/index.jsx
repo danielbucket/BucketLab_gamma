@@ -10,12 +10,12 @@ import ErrorPage from '../ErrorPage/index.jsx'
 const { VITE_BUCKETLAB_SERVER } = import.meta.env
 
 export default function AccountRegistration() {
-  const [password, setPassword] = useState('Poofter')
-  const [email, setEmail] = useState('paul@poofter.com')
-  const [firstName, setFirstName] = useState('Paul')
-  const [lastName, setLastName] = useState('Poofter')
-  const [website, setWebsite] = useState('www.poofter.com')
-  const [company, setCompany] = useState('Poofter Inc.')
+  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [website, setWebsite] = useState('')
+  const [company, setCompany] = useState('')
   const [errors, setErrors] = useState([])
   const navigate = useNavigate()
 
