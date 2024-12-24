@@ -22,7 +22,7 @@ const TypeWriter = ({ text, speed }) => {
 };
 
 TypeWriter.propTypes = {
-  text: PropTypes.string.isRequired,
+  // text: PropTypes.string.isRequired,
   speed: PropTypes.number.isRequired
 }
 

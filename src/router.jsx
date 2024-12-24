@@ -7,7 +7,7 @@ import Contact from './routes/Contact'
 import HomeLab from './routes/HomeLab'
 import Projects from './routes/Projects'
 import ErrorPage from './routes/ErrorPage'
-import UserRegistration from './routes/UserRegistration'
+import AccountRegistration from './routes/AccountRegistration'
 
 const routes = [
   {
@@ -52,8 +52,8 @@ const routes = [
           },
           {
             path: 'homelab/register',
-            // component: UserRegistration, // v7 future feature
-            element: <UserRegistration />,
+            // component: AccountRegistration, // v7 future feature
+            element: <AccountRegistration />,
           }
         ]
       }

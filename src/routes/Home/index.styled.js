@@ -6,6 +6,7 @@ export const ModalWrapper = styled(ModalContainer)``
 export const ContentWrapper = styled(ContentContainer)`
   flex-direction: column;
 
+  terxt-align: left;
   & p:first-child {
     font-size: 1.75rem;
     font-weight: bold;

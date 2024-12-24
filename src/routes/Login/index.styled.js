@@ -6,6 +6,13 @@ export const LoginWrapper = styled(ContentContainer)`
   flex-direction: column;
   justify-content: start;
   margin-top: 5rem;
+
+  & div:first-child {
+    font-size: 1.75rem;
+    padding-bottom: 1rem;
+    font-family: Ubuntu_Reg;
+    text-align: center;
+  }
   
   & form {
     width: 98%;

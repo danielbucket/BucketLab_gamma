@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { LoginContainer, LoginWrapper } from './index.styled.js'
 import { formValidate } from '../utils/formValidate.js'
 
@@ -9,11 +9,22 @@ export default function Login() {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState([])
+  const [message, setMessage] = useState('')
   const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
-    console.log('Errors: ', errors)
+    if (errors.length > 0) {
+      console.log('Errors: ', errors)
+    }
   }, [errors])
+
+  useEffect(() => {
+    if (location.state?.email && location.state?.message) {
+      setUserName(() => location.state.email)
+      setMessage(() => location.state.message)
+    }
+  }, [location.state])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -65,6 +76,9 @@ export default function Login() {
     <>
       <LoginContainer>
         <LoginWrapper>
+          {
+            message !== '' ? <div>{message}</div> : null
+          }
           <form onSubmit={data => handleSubmit(data)}>
             <label>Username</label>
             <input
@@ -83,11 +97,11 @@ export default function Login() {
               onChange={(e) => handleChange(e)}
               />
             <input type='submit' />
-            <button onClick={() => navigate(-1)}>Cancel</button>
+            <button onClick={() => navigate('/homelab')}>Cancel</button>
           </form>
           <div className='register-new'>
             <p>Don't have an account?</p>
-            <button onClick={() => navigate('/homelab/register')}>Make one Here</button>
+            <button onClick={() => navigate('/homelab/register')}>Make one here.</button>
           </div>
         </LoginWrapper>
       </LoginContainer>
