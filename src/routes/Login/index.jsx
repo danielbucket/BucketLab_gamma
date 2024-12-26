@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { LoginContainer, LoginWrapper } from './index.styled.js'
-import { formValidate } from '../utils/formValidate.js'
 
 const { VITE_BUCKETLAB_SERVER } = import.meta.env
 
@@ -40,7 +39,7 @@ export default function Login() {
       setErrors({ ...errors, password: 'Password must be at least 8 characters' })
     }
 
-    fetch(`${VITE_BUCKETLAB_SERVER}/api/auth/login`, {
+    fetch(`${VITE_BUCKETLAB_SERVER}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
