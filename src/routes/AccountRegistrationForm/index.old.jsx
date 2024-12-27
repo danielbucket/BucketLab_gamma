@@ -21,7 +21,6 @@ export default function AccountRegistration() {
   })
   const navigate = useNavigate()
   const validateFormField = useValidateFormField()
-// console.log('validateFormField', typeof validateFormField)
 
   const errorCheck = (e) => {
 

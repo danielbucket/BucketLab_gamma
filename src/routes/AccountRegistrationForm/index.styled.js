@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { BasePageLayout, ContentContainer } from '../Root/index.styled'
+import { FormStyle } from '../Root/formStyle.styled'
 
+export const StyledForm = styled(FormStyle)``
 export const AccountRegistrationContainer = styled(BasePageLayout)``
 export const AccountRegistrationWrapper = styled(ContentContainer)`
   flex-direction: column;
@@ -8,6 +10,7 @@ export const AccountRegistrationWrapper = styled(ContentContainer)`
   margin-top: 5rem;
 
   & form {
+    height: 40rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,6 +28,7 @@ export const AccountRegistrationWrapper = styled(ContentContainer)`
       width: 98%;
       display: flex;
       flex-direction: column;
+
 
       & div {
         display: flex;
@@ -63,12 +67,16 @@ export const AccountRegistrationWrapper = styled(ContentContainer)`
     }
 
     & .submit-btns {
+      flex-grow: 1;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
       width: 98%;
       padding: 0 0.5rem;
 
       & input[type='submit'] {
+        width: 100%;
         font-size: 2rem;
         font-family: Ubuntu_Reg;
         padding: 0.5rem;
@@ -88,6 +96,7 @@ export const AccountRegistrationWrapper = styled(ContentContainer)`
       }
 
       & input[type='button'] {
+        width: 40%;
         border: none;
         background-color: var(--special-blue);
       
