@@ -7,7 +7,7 @@ import Contact from './routes/Contact'
 import HomeLab from './routes/HomeLab'
 import Projects from './routes/Projects'
 import ErrorPage from './routes/ErrorPage'
-import AccountRegistrationForm from './routes/AccountRegistration'
+import AccountRegistrationForm from './routes/AccountRegistrationForm'
 
 const routes = [
   {

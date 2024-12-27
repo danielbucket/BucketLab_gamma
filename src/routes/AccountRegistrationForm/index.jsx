@@ -85,13 +85,13 @@ export default function AccountRegistrationForm() {
                 })}
                 placeholder='Password'
               />
-              <div className='submit-btns'>
-                <input type="submit"
-                  value="Submit" />
-                <input type="button"
-                  value="Cancel"
-                  onClick={() => navigate('/homelab')} />
-              </div>
+            </div>
+            <div className='submit-btns'>
+              <input type="submit"
+                value="Submit" />
+              <input type="button"
+                value="Cancel"
+                onClick={() => navigate('/homelab')} />
             </div>
           </form>
         </AccountRegistrationWrapper>
