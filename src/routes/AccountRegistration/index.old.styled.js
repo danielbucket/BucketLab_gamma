@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 import { BasePageLayout, ContentContainer } from '../Root/index.styled'
 
-export const AccountRegistrationContainer = styled(BasePageLayout)``
-export const AccountRegistrationWrapper = styled(ContentContainer)`
-  flex-direction: column;
+export const UserRegistrationContainer = styled(BasePageLayout)``
+export const UserRegistrationWrapper = styled(ContentContainer)`
+flex-direction: column;
   justify-content: start;
   margin-top: 5rem;
-
+  
   & form {
     display: flex;
     flex-direction: column;
@@ -20,7 +20,37 @@ export const AccountRegistrationWrapper = styled(ContentContainer)`
     border-radius: 0.5rem;
     background-color: var(--special-blue);
     box-shadow: 0 0 0.5rem 0.25rem #0E66F0Eb;
+  }
 
+  .form-field {
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+
+    & .label-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 0.5rem;
+
+      & .error-alert {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        font-size: 1rem;
+        font-family: Ubuntu_Reg;
+        color: red;
+        color:
+    }
+
+    & label {
+      font-size: 2rem;
+      font-family: Orbitron;
+      color: #EEE;
+    }
+    
+    }
     & input {
       font-size: 2rem;
       font-family: Ubuntu_Reg;
@@ -47,33 +77,23 @@ export const AccountRegistrationWrapper = styled(ContentContainer)`
         box-shadow: 0 0 0.5rem 0.25rem var(--special-blue);
         transition: background-color 0.5s, color 0.5s, border-radius 0.5s, box-shadow 0.5s;
       }
-    }
-
-    & p {
-      font-size: 1.5rem;
-      font-family: Ubuntu_Reg;
-      color: red;
-      height: 2rem;
-      width: 98%;
-      text-align: center;
-    }
-
-    & p:last-of-type {
-      margin-bottom: 1.25rem;
-    }
-
-
-    & input[type='button'] {
-      border: none;
-      background-color: var(--special-blue);
-      
-      &:hover {
-        background-color: #EEE;
-        color: var(--special-blue);
-        border-radius: 0.5rem;
-        box-shadow: 0 0 0.5rem 0.25rem var(--special-blue);
-        transition: background-color 0.5s, color 0.5s, border-radius 0.5s, box-shadow 0.5s;
-      }
   }
+  
+  .register-new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-family: Ubuntu_Reg;
+    font-size: 2rem;
 
+    & button {
+      font-size: 2rem;
+      text-decoration: underline;
+    }
+    
+    & button:hover {
+      color: var(--special-blue);
+  }
 `

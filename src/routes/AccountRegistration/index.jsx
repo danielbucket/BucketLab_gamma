@@ -1,188 +1,101 @@
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { UserRegistrationContainer, UserRegistrationWrapper } from './index.styled.js'
-import { validateForm } from './validateForm.js'
-import ErrorPage from '../ErrorPage/index.jsx'
+import { AccountRegistrationContainer, AccountRegistrationWrapper } from './index.styled'
 
-// write optimistic code that immediately responds to the user
-// that the registration was successful upon form submission
-
-const { VITE_BUCKETLAB_SERVER } = import.meta.env
-
-export default function AccountRegistration() {
-  const [first_name, setFirstName] = useState('Edward')
-  const [last_name, setLastName] = useState('Abbey')
-  const [email, setEmail] = useState('edward@abbey.com')
-  const [website, setWebsite] = useState('www.edwardabbey.com')
-  const [company, setCompany] = useState('Desert Solitaire')
-  const [password, setPassword] = useState('password')
-  const [errors, setErrors] = useState({
-    first_name: [], last_name: [], email: [], password: [], confirm_password: [] 
-  })
+export default function AccountRegistrationForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm()
   const navigate = useNavigate()
-
-  const errorCheck = (e) => {
-    const error = validateForm(e.target.name, e.target.value)
-    if (error) {
-      setErrors(
-        (errors) => Object.assign({}, errors, error)
-      ) 
-    }
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    for (const key in errors) {
-      if (errors[key].length > 0) {
-        // alert('Please fix the errors in the form')
-        return
-      }
-    }
-
-    fetch(`${VITE_BUCKETLAB_SERVER}/account/register`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ website, password, email, first_name, last_name, company })
-    })
-    .then(res => res.json())
-    .then(res => {
-      const { first_name, message } = res
-      navigate('/homelab/login', {
-        state: { first_name, message }
-      })
-    })
-    .catch(err => {
-      ErrorPage(err)
-    })
-  }
   
   return (
-    <UserRegistrationContainer>
-      <UserRegistrationWrapper>
-        <form onSubmit={data => handleSubmit(data)}>
-
-          <div className='form-field'>
-            <div className='label-container'>
-              <label>First Name</label>
-              <div className='error-alert'>
-                {
-                  errors.first_name.map((error, index) => {
-                    return <p key={index}>{error}</p>
-                  })
-                }
+    <>
+      <AccountRegistrationContainer>
+        <AccountRegistrationWrapper>
+          <form onSubmit={(handleSubmit((values) => {
+            console.log('submit', values)
+          }))}>
+            <div className='form-field'>
+              <div>
+                <label>First Name</label>
+                <p>{errors.first_name?.message}</p>
+              </div>
+              <input
+                type="text"
+                {...register('first_name', { 
+                  required: 'First Name is required',
+                  maxLength: {
+                    value: 20,
+                    message: 'First Name must be less than 20 characters.'
+                  }
+                })}
+                placeholder='First Name'
+              />
+            </div>
+            <div className='form-field'>
+              <div>
+                <label>Last Name</label>
+                <p>{errors.last_name?.message}</p>
+              </div>
+              <input type="text"
+                {...register('last_name', {
+                  required: 'Last Name is required',
+                  maxLength: {
+                    value: 20,
+                    message: 'Last Name must be less than 20 characters.'
+                  }
+                })} 
+                placeholder='Last Name'
+              />
+            </div>
+            <div className='form-field'>
+              <div>
+                <label>Email</label>
+                <p>{errors.email?.message}</p>
+              </div>
+              <input type="email"
+                {...register('email', { 
+                  required: 'An email is required',
+                  pattern: {
+                    value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                    message: 'Please enter a valid email.'
+                  }
+                })}
+                placeholder='Email'
+              />
+            </div>
+            <div className='form-field'>
+              <div>
+                <label>Password</label>
+                <p>{errors.password?.message}</p>
+              </div>
+              <input type="password"
+                {...register('password', { 
+                  required: 'Password is required',
+                  min: {
+                    value: 6,
+                    message: 'Password must be at least 6 characters.'
+                  },
+                  pattern: {
+                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/,
+                    message: 'Password must contain at least one uppercase letter, one lowercase letter, and one number.'
+                  }
+                })}
+                placeholder='Password'
+              />
+              <div className='submit-btns'>
+                <input type="submit"
+                  value="Submit" />
+                <input type="button"
+                  value="Cancel"
+                  onClick={() => navigate('/homelab')} />
               </div>
             </div>
-            <input
-              type='text'
-              value={first_name}
-              placeholder='First Name'
-              name='first_name'
-              onChange={(e) => {
-                errorCheck(e)
-                setFirstName(e.target.value)
-              }} />
-          </div>
-
-          <div className='form-field'>
-            <div className='label-container'>
-              <label>Last Name</label>
-              <div className='error-alert'>
-                {
-                  errors.last_name.map((error, index) => {
-                    return <p key={index}>{error}</p>
-                  })
-                }
-              </div>
-            </div>
-            <input
-              type='text'
-              value={last_name}
-              placeholder='Last Name'
-              name='last_name'
-              onChange={(e) => {
-                errorCheck(e)
-                setLastName(e.target.value)
-              }} />
-          </div>
-
-          <div className='form-field'>
-            <div className='label-container'>
-              <label>Company</label>
-            </div>
-            <input
-              type='text'
-              value={company}
-              placeholder='Company'
-              name='company'
-              onChange={(e) => {
-                errorCheck(e)
-                setCompany(e.target.value)
-              }} />
-          </div>
-
-          <div className='form-field'>
-            <div className='label-container'>
-              <label>Website</label>
-            </div>
-            <input
-              type='text'
-              value={website}
-              placeholder='Website'
-              name='website'
-              onChange={(e) => {
-                errorCheck(e)
-                setWebsite(e.target.value)
-              }} />
-          </div>
-
-          <div className='form-field'>
-            <div className='label-container'>
-              <label>Email</label>
-            </div>
-            <div className='error-alert'>
-              {
-                errors.email.map((error, index) => {
-                  return <p key={index}>{error}</p>
-                })
-              }
-            </div>
-            <input
-              type='email'
-              value={email}
-              placeholder='Email'
-              name='email'
-              onChange={(e) => {
-                errorCheck(e)
-                setEmail(e.target.value)
-              }} />
-          </div>
-          <div className='form-field'>
-            <div className='label-container'>
-              <label>Password</label>
-              <div className='error-alert'>
-                {
-                  errors.password.map((error, index) => {
-                    return <p key={index}>{error}</p>
-                  })
-                }
-              </div>
-            </div>
-            <input
-              type='text'
-              value={password}
-              placeholder='Password'
-              name='password'
-              onChange={(e) => {
-                errorCheck(e)
-                setPassword(e.target.value)
-              }} />
-          </div>
-          <input type='submit' />
-          <button onClick={() => navigate('/homelab')}>Cancel</button>
-        </form>
-      </UserRegistrationWrapper>
-    </UserRegistrationContainer>
+          </form>
+        </AccountRegistrationWrapper>
+      </AccountRegistrationContainer>
+    </>
   )
 }
