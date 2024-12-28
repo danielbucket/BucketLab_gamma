@@ -31,7 +31,7 @@ export default function Login() {
   }, [location.state])
 
   const submitForm = (values) => {
-    fetch(`${VITE_BUCKETLAB_SERVER}/account/register`, {
+    fetch(`${VITE_BUCKETLAB_SERVER}/account/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,9 +40,12 @@ export default function Login() {
     })
     .then((res) => res.json())
     .then((res) => {
-      const { first_name, message } = res
-      navigate('/homelab/login', {
-        state: { first_name, message }
+      const { loggedIn, id, email } = res
+      if (!res.loggedIn) {
+        throw new Error('Login failed.')
+      }
+      navigate('/account_home', {
+        state: { loggedIn, id, email }
       })
     })
     .catch((err) => {

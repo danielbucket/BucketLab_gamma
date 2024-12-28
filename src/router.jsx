@@ -7,6 +7,7 @@ import Contact from './routes/Contact'
 import HomeLab from './routes/HomeLab'
 import Projects from './routes/Projects'
 import ErrorPage from './routes/ErrorPage'
+import AccountHome from './routes/AccountHome'
 import AccountRegistrationForm from './routes/AccountRegistrationForm'
 
 const routes = [
@@ -58,8 +59,12 @@ const routes = [
           }
         ]
       }
-    ]
-  }
+    ],
+  },
+  {
+    path: '/account_home',
+    element: <AccountHome />,
+  },
 ]
 
 const router = createBrowserRouter(routes, {
