@@ -8,6 +8,7 @@ const { VITE_BUCKETLAB_SERVER } = import.meta.env
 
 export default function Login() {
   const [email, setEmail] = useState('')
+  const [registerSuccess, setRegisterSuccess] = useState(false)
   const [message, setMessage] = useState('')
   const {
     register,
@@ -15,39 +16,38 @@ export default function Login() {
     formState: { errors }
   } = useForm({
     defaultValues: {
-      email: email.length ? email : '',
+      email: email.length > 0 ? email : '',
     }
   })
   const navigate = useNavigate()
   const location = useLocation()
 
   useEffect(() => {
-    if (location.state?.email && location.state?.message) {
+    if (location.state?.registerSuccess == true && location.state?.email && location.state?.email) {
       setEmail(() => location.state.email)
+      setRegisterSuccess(() => location.state.registerSuccess)
       setMessage(() => location.state.message)
     }
   }, [location.state])
 
   const submitForm = (values) => {
     fetch(`${VITE_BUCKETLAB_SERVER}/account/register`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ values })
-        })
-        .then((res) => res.json())
-        .then((res) => {
-          console.log('values: ', res)
-          const { first_name, message } = res
-          
-          navigate('/homelab/login', {
-            state: { first_name, message }
-          })
-        })
-        .catch((err) => {
-          ErrorPage(err)
-        })
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ values })
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      const { first_name, message } = res
+      navigate('/homelab/login', {
+        state: { first_name, message }
+      })
+    })
+    .catch((err) => {
+      ErrorPage(err)
+    })
   }
 
   return (
@@ -55,9 +55,8 @@ export default function Login() {
       <LoginContainer>
         <LoginWrapper>
           <StyledForm onSubmit={(handleSubmit((values) => submitForm(values)))}>
-            {message.length > 0 ? <p>{ message }</p> : null}
+            { registerSuccess && <p>{message}</p> }
             <div className='fields-container'>
-
               <div className='form-field'>
                 <div>
                   <label>Email</label>
@@ -72,9 +71,9 @@ export default function Login() {
                     }
                   })}
                   placeholder='Email'
+                  value={email.length > 0 ? email : null}
                 />
               </div>
-
               <div className='form-field'>
                 <div>
                   <label>Password</label>
@@ -87,17 +86,14 @@ export default function Login() {
                   placeholder='Password'
                 />
               </div>
-
             </div>
-
             <div className='submit-btns'>
               <input type="submit"
-                value="Submit" />
+                value="Login" />
               <input type="button"
                 value="Cancel"
                 onClick={() => navigate('/homelab')} />
             </div>
-
           </StyledForm>
           <div className='register-new'>
             <p>Don't have an account?</p>

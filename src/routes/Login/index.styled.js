@@ -2,7 +2,15 @@ import styled from 'styled-components'
 import { BasePageLayout, ContentContainer } from '../Root/index.styled'
 import { FormStyle } from '../Root/formStyle.styled'
 
-export const StyledForm = styled(FormStyle)``
+export const StyledForm = styled(FormStyle)`
+  p {
+    font-size: 1.5rem;
+    font-family: Ubuntu_Reg;
+    color: var(--special-green);
+    text-align: center;
+    
+  }
+`
 export const LoginContainer = styled(BasePageLayout)``
 export const LoginWrapper = styled(ContentContainer)`
   flex-direction: column;

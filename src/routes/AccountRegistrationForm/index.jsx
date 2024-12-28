@@ -4,21 +4,43 @@ import {
   AccountRegistrationContainer,
   AccountRegistrationWrapper,
   StyledForm } from './index.styled'
+import ErrorPage from '../ErrorPage'
+const { VITE_BUCKETLAB_SERVER } = import.meta.env 
 
 export default function AccountRegistrationForm() {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm()
-  const navigate = useNavigate()
+
+  const submitForm = async (values) => {
+    await fetch(`${VITE_BUCKETLAB_SERVER}/account/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ...values })
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      const { registerSuccess, message, email, id } = res
+      navigate('/homelab/login', {
+        state: { registerSuccess, message, email, id }
+      })
+    })
+    .catch((err) => {
+      ErrorPage(err)
+    })
+  }
   
   return (
     <>
       <AccountRegistrationContainer>
         <AccountRegistrationWrapper>
           <StyledForm onSubmit={(handleSubmit((values) => {
-            console.log('submit', values)
+            submitForm(values)
           }))}>
             <div className='fields-container'>
 
