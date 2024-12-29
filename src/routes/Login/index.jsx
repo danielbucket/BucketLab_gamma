@@ -2,29 +2,22 @@ import { useForm } from 'react-hook-form'
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { LoginContainer, LoginWrapper, StyledForm } from './index.styled'
-import ErrorPage from '../ErrorPage'
 
 const { VITE_BUCKETLAB_SERVER } = import.meta.env
 
 export default function Login() {
-  const [email, setEmail] = useState('')
   const [registerSuccess, setRegisterSuccess] = useState(false)
   const [message, setMessage] = useState('')
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm({
-    defaultValues: {
-      email: email.length > 0 ? email : '',
-    }
-  })
+  } = useForm()
   const navigate = useNavigate()
   const location = useLocation()
 
   useEffect(() => {
     if (location.state?.registerSuccess == true && location.state?.email && location.state?.email) {
-      setEmail(() => location.state.email)
       setRegisterSuccess(() => location.state.registerSuccess)
       setMessage(() => location.state.message)
     }
@@ -36,20 +29,17 @@ export default function Login() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ values })
+      body: JSON.stringify({ ...values })
     })
     .then((res) => res.json())
     .then((res) => {
       const { loggedIn, id, email } = res
-      if (!res.loggedIn) {
-        throw new Error('Login failed.')
-      }
-      navigate('/account_home', {
+      navigate('/laboratory/dashboard', {
         state: { loggedIn, id, email }
       })
     })
     .catch((err) => {
-      ErrorPage(err)
+      console.log(err)
     })
   }
 
@@ -74,7 +64,6 @@ export default function Login() {
                     }
                   })}
                   placeholder='Email'
-                  value={email.length > 0 ? email : null}
                 />
               </div>
               <div className='form-field'>

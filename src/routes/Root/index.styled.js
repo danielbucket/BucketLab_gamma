@@ -36,11 +36,11 @@ export const ModalContainer = styled.div`
   }
 `
   
-  export const ContentContainer = styled.div`
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    width: 100%;
-  `
+export const ContentContainer = styled.div`
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+`
