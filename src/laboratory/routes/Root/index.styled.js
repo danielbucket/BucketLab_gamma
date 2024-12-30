@@ -5,12 +5,14 @@ export const RootStyle = styled.div`
   flex-direction: column;
   height: 100vh;
   padding: .25rem;
+  background-color: var(--special-blue);
 
   .lab-dashboard {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    height: 10rem;
+    height: 12rem;
+    margin-bottom: 1rem;
   }
 
   .lab-terminal {

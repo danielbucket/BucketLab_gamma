@@ -1,15 +1,22 @@
+import { useState, useEffect } from 'react'
 import { StyledCubicle } from './index.styled'
+import Sidebar from './SideBar'
+import Content from './Content'
+
 
 export default function Cubicle() {
-
 
   return (
     <>
       <StyledCubicle>
-        <div>
-          <h1>Welcome to the Cubicle.</h1>
+        <Sidebar className='cubicle-sidebar'>
+          <h1>Virtual Cubicle</h1>
           <p>Do some work, or don't. It's up to you.</p>
-        </div>
+        </Sidebar>
+        <Content className='cubicle-content'>
+          <h2>What's on your mind?</h2>
+          <p>Write a note, or draw a picture. It's your space.</p>
+        </Content>
       </StyledCubicle>
     </>
   )

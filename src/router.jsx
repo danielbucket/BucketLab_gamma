@@ -10,8 +10,8 @@ const routes = [
 const router = createBrowserRouter(routes, {
   future: {
     v7_normalizeFormMethod: true,
-    // v7_relativeSplatPath: true,
-    // v7_startTransition: true,
+    v7_relativeSplatPath: true,
+    v7_startTransition: true,
   }
 })
 
