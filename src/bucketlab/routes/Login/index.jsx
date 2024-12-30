@@ -33,9 +33,10 @@ export default function Login() {
     })
     .then((res) => res.json())
     .then((res) => {
-      const { loggedIn, id, email } = res
-      navigate('/laboratory/dashboard', {
-        state: { loggedIn, id, email }
+      const { loggedIn } = res
+      const { profile } = res
+      navigate('/laboratory', {
+        state: { loggedIn, profile }
       })
     })
     .catch((err) => {

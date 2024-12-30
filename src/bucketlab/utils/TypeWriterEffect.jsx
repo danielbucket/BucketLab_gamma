@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 
-const TypeWriter = ({ text, speed }) => {
+export const TypeWriterEffect = ({ text, speed }) => {
   const [typedText, setTypedText] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -21,9 +21,7 @@ const TypeWriter = ({ text, speed }) => {
   return <p>{typedText}</p>
 };
 
-TypeWriter.propTypes = {
+TypeWriterEffect.propTypes = {
   // text: PropTypes.string.isRequired,
   speed: PropTypes.number.isRequired
 }
-
-export default TypeWriter

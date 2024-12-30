@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { AboutContainer, ModalWrapper, ContentWrapper } from './index.styled.js'
+import { HomeContainer, ModalWrapper, ContentWrapper } from './index.styled.js'
 import { fakeLoaderData } from './stub.js'
-import importedImage from '../../assets/images/danielBucket_ai_01.jpeg'
-import TypeWriter from '../utils/TypeWriterEffect.jsx'
+import { TypeWriterEffect } from '../../utils/TypeWriterEffect.jsx'
+import importedImage from '../../assets/images/laboratory_04.jpeg'
 
-export default function About() {
-  const [pageText, setPageText] = useState('')
+export default function Home() {
+  const [pageText, setPageText] = useState({})
   const [pageImage, setPageImage] = useState()
   const loaderData = fakeLoaderData()
 
@@ -13,18 +13,18 @@ export default function About() {
     setPageImage(() => importedImage)
     setPageText(() => loaderData)
   }, [])
-  
+
   return (
     <>
-      <AboutContainer>
+      <HomeContainer>
         <ModalWrapper>
           <img id="modalImage" src={ pageImage } />
         </ModalWrapper>
         <ContentWrapper>
-          <TypeWriter text={pageText.bio} speed={50} /> 
-          <p>{pageText.title}</p>
+          <TypeWriterEffect text={pageText.quote} speed={50} />
+          <p>-{pageText.author}</p>
         </ContentWrapper>
-      </AboutContainer>
+      </HomeContainer>
     </>
   )
 }

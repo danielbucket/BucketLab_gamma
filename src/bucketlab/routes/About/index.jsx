@@ -1,29 +1,30 @@
 import { useEffect, useState } from 'react'
-import { ContactContainer, ModalWrapper, ContentWrapper } from './index.styled.js'
-import TypeWriter from '../utils/TypeWriterEffect.jsx'
+import { AboutContainer, ModalWrapper, ContentWrapper } from './index.styled.js'
 import { fakeLoaderData } from './stub.js'
-import importedImage from '../../assets/images/laboratory_03.jpeg'
+import importedImage from '../../assets/images/danielBucket_ai_01.jpeg'
+import { TypeWriterEffect } from '../../utils/TypeWriterEffect.jsx'
 
-export default function Contact() {
+export default function About() {
   const [pageText, setPageText] = useState('')
   const [pageImage, setPageImage] = useState()
   const loaderData = fakeLoaderData()
 
   useEffect(() => {
     setPageImage(() => importedImage)
-    setPageText(() => loaderData.text)
+    setPageText(() => loaderData)
   }, [])
-
+  
   return (
     <>
-      <ContactContainer>
+      <AboutContainer>
         <ModalWrapper>
           <img id="modalImage" src={ pageImage } />
         </ModalWrapper>
         <ContentWrapper>
-          <TypeWriter text={pageText} speed={50} />
+          <TypeWriterEffect text={pageText.bio} speed={50} /> 
+          <p>{pageText.title}</p>
         </ContentWrapper>
-      </ContactContainer>
+      </AboutContainer>
     </>
   )
 }

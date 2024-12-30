@@ -14,10 +14,12 @@ export default function LaboratoryDashboard() {
 
   useEffect(() => {
     if (location.state?.loggedIn) {
-      const { loggedIn, profile, permissions } = location.state
+      const { loggedIn, profile } = location.state
+      // const { permissions } = profile
+      console.log(location.state)
       setLoggedIn(() => loggedIn)
       setProfile(() => profile)
-      setPermissions(() => permissions)
+      // setPermissions(() => permissions)
     }
   }, [location.state])
 
@@ -31,7 +33,7 @@ export default function LaboratoryDashboard() {
 
         <div className='lab-admin'>
         <div className='permissions-status'>
-          {/* should change colors based on permissionStatus boolean */}
+          should change colors based on permissionStatus boolean
           { loggedIn 
             ? ( <>
                   <p>Permissions Active</p>

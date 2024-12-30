@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CubicleContainer = styled.div`
+export const StyledCubicle = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;

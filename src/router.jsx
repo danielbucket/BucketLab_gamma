@@ -1,60 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom'
-import Root from './routes/Root'
-import Home from './routes/Home'
-import Login from './routes/Login'
-import About from './routes/About'
-import Contact from './routes/Contact'
-import HomeLab from './routes/HomeLab'
-import Projects from './routes/Projects'
-import ErrorPage from './routes/ErrorPage'
-import Dashboard from './laboratory/routes/Dashboard'
-import AccountRegistrationForm from './routes/AccountRegistrationForm'
+import { router as labRouter } from './laboratory/laboratory.router'
+import { router as bucketlabRouter } from './bucketlab/bucketlab.router'
 
 const routes = [
-  {
-    path: '/',
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        errorElement: <ErrorPage />,
-        children: [
-          {
-            index: true,
-            element: <Home />,
-          },
-          {
-            path: 'about',
-            element: <About />,
-          },
-          {
-            path: 'contact',
-            element: <Contact />,
-          },
-          {
-            path: 'projects',
-            element: <Projects />,
-          },
-          {
-            path: 'homelab',
-            element: <HomeLab />,
-          },
-          {
-            path: 'homelab/login',
-            element: <Login />,
-          },
-          {
-            path: 'homelab/register',
-            element: <AccountRegistrationForm />,
-          }
-        ]
-      }
-    ],
-  },
-  {
-    path: '/laboratory',
-    router: './laboratory/labRouter.jsx'
-  },
+  bucketlabRouter,
+  labRouter
 ]
 
 const router = createBrowserRouter(routes, {
