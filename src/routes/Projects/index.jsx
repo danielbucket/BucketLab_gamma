@@ -32,7 +32,6 @@ export default function Projects() {
                   to={ repo.url }
                   target="_blank"
                   onMouseEnter={() => handleHover(repo)}
-                  onTouchStart={() => handleHover(repo)}
                 >{ repo.repo }</CustomLink>
               </li>
             )
