@@ -26,6 +26,16 @@ export const StyledLink = styled(Link)`
     box-shadow: 0 0 0.5rem 0.25rem #0E66F0Eb;
     transition: background-color 0.5s, color 0.5s, border-radius 0.5s, box-shadow 0.5s;
   }
+  
+  @media only screen and (max-width: 600px) {
+    :hover {
+      color: #EEE;
+      background-color: var(--special-blue);
+      border-radius: 0.5rem;
+      box-shadow: 0 0 0.5rem 0.25rem #0E66F0Eb;
+      transition: background-color 0.5s, color 0.5s, border-radius 0.5s, box-shadow 0.5s;
+    }
+  }
 `
 
 export const ModalWrapper = styled(ModalContainer)` 
