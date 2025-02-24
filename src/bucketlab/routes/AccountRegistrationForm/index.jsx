@@ -1,22 +1,22 @@
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import {
   AccountRegistrationContainer,
   AccountRegistrationWrapper,
-  StyledForm } from './index.styled'
-import ErrorPage from '../ErrorPage'
-const { VITE_BUCKETLAB_SERVER } = import.meta.env 
+  StyledForm } from './index.styled';
+import ErrorPage from '../ErrorPage';
+const { VITE_BUCKETLAB_SERVER } = import.meta.env ;
 
 export default function AccountRegistrationForm() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm()
+  } = useForm();
 
   const submitForm = async (values) => {
-    await fetch(`${VITE_BUCKETLAB_SERVER}/account/register`, {
+    await fetch(`${VITE_BUCKETLAB_SERVER}/accounts`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,15 +25,15 @@ export default function AccountRegistrationForm() {
     })
     .then((res) => res.json())
     .then((res) => {
-      const { registerSuccess, message, email, id } = res
+      const { first_name, email, _id } = res.data
       navigate('/homelab/login', {
-        state: { registerSuccess, message, email, id }
+        state: { first_name, email, _id }
       })
     })
     .catch((err) => {
       ErrorPage(err)
-    })
-  }
+    });
+  };
   
   return (
     <>
@@ -43,7 +43,6 @@ export default function AccountRegistrationForm() {
             submitForm(values)
           }))}>
             <div className='fields-container'>
-
               <div className='form-field'>
                 <div>
                   <label>First Name</label>
@@ -60,7 +59,6 @@ export default function AccountRegistrationForm() {
                   placeholder='First Name'
                 />
               </div>
-
               <div className='form-field'>
                 <div>
                   <label>Last Name</label>
@@ -77,7 +75,6 @@ export default function AccountRegistrationForm() {
                   placeholder='Last Name'
                 />
               </div>
-
               <div className='form-field'>
                 <div>
                   <label>Email</label>
@@ -94,7 +91,6 @@ export default function AccountRegistrationForm() {
                   placeholder='Email'
                 />
               </div>
-
               <div className='form-field'>
                 <div>
                   <label>Password</label>
@@ -115,9 +111,7 @@ export default function AccountRegistrationForm() {
                   placeholder='Password'
                 />
               </div>
-
             </div>
-
             <div className='submit-btns'>
               <input type="submit"
                 value="Submit" />
@@ -125,10 +119,9 @@ export default function AccountRegistrationForm() {
                 value="Cancel"
                 onClick={() => navigate('/homelab')} />
             </div>
-
           </StyledForm>
         </AccountRegistrationWrapper>
       </AccountRegistrationContainer>
     </>
-  )
-}
+  );
+};

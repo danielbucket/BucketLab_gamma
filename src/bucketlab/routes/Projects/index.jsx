@@ -42,7 +42,6 @@ export default function Projects() {
   }
   
   const repoList = renderRepoList(repotList)
-
   return (
     <>
       <ProjectsContainer>

@@ -1,31 +1,33 @@
-import { useForm } from 'react-hook-form'
-import { useState, useEffect } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
-import { LoginContainer, LoginWrapper, StyledForm } from './index.styled'
+import { useForm } from 'react-hook-form';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { LoginContainer, LoginWrapper, StyledForm } from './index.styled';
 
-const { VITE_BUCKETLAB_SERVER } = import.meta.env
+const { VITE_BUCKETLAB_SERVER } = import.meta.env;
 
 export default function Login() {
-  const [registerSuccess, setRegisterSuccess] = useState(false)
-  const [message, setMessage] = useState('')
+  const [registerSuccess, setRegisterSuccess] = useState(false);
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm()
-  const navigate = useNavigate()
-  const location = useLocation()
+  } = useForm();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    if (location.state?.registerSuccess == true && location.state?.email && location.state?.email) {
-      setRegisterSuccess(() => location.state.registerSuccess)
-      setMessage(() => location.state.message)
+    if (location.state?.registerSuccess == true && location.state?.email) {
+      setRegisterSuccess(() => location.state.registerSuccess);
+      setMessage(() => location.state.message);
     }
-  }, [location.state])
+  }, [location.state]);
 
   const submitForm = (values) => {
-    fetch(`${VITE_BUCKETLAB_SERVER}/account/login`, {
-      method: 'POST',
+    fetch(`${VITE_BUCKETLAB_SERVER}/accounts/login`, {
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -33,16 +35,19 @@ export default function Login() {
     })
     .then((res) => res.json())
     .then((res) => {
-      const { loggedIn } = res
-      const { profile } = res
+      if (res.status === 'fail') {
+        return setError(() => res);
+      };
+
       navigate('/laboratory', {
-        state: { loggedIn, profile }
-      })
+        state: res
+      });
     })
     .catch((err) => {
-      console.log(err)
-    })
-  }
+      console.error('ERROR: ', err);
+      setError(() => err);
+    });
+  };
 
   return (
     <>
@@ -95,5 +100,5 @@ export default function Login() {
         </LoginWrapper>
       </LoginContainer>
     </>
-  )
-}
+  );
+};

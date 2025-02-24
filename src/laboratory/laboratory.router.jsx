@@ -1,6 +1,6 @@
-import Root from './routes/Root'
-import Cubicle from './routes/Cubicle'
-import ErrorPage from './routes/ErrorPage'
+import Root from './routes/Root';
+import Cubicle from './routes/Cubicle';
+import ErrorPage from './routes/ErrorPage';
 
 export const router = {
   path: '/laboratory',
@@ -12,4 +12,4 @@ export const router = {
       index: true
     }
   ]
-}
+};

@@ -10,7 +10,7 @@ export default function Content() {
         <p>Coming soon to a Cubicle near you...</p>
         <p>In the works is a communication utility that will bridge the gap between you the Cubicle Dweller and me, Bucket.</p>
         <p>Stay tuned for updates!</p>
-        <p>I need to clear out the cobwebs currently inhabinting the space in my brain where my knowledge of KnexJS and PosgreSQL should still be burried...</p>
+        <p>I need to clear out the cobwebs currently inhabiting the space in my brain where my knowledge of KnexJS and PosgreSQL should still be burried...</p>
       </div>
       <div className='footer'>
         <p>Remember, I can still be contacted via <Link to='https://www.linkedin.com/in/daniel-ludwick/'>LinkedIn</Link></p>

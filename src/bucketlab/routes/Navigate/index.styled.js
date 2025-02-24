@@ -2,15 +2,15 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 export const NavContainer = styled.nav`
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 0.5rem 0.25rem;
-margin-bottom: 0.5rem;
-font-family: Ubuntu_Reg;
-box-shadow: 0 0 .5rem .25rem #0e66f0eb;
-background-color: var(--special-blue);
-height: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 10rem;
+  padding: 0.5rem 0.25rem;
+  margin-bottom: 0.5rem;
+  font-family: Ubuntu_Reg;
+  box-shadow: 0 0 .5rem .25rem #0e66f0eb;
+  background-color: var(--special-blue);
 
   .title {
     height: 6rem;
