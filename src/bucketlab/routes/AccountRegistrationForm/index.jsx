@@ -1,4 +1,5 @@
-import { useForm } from 'react-hook-form';
+import { useState, useEffect } from 'react';
+import { set, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import {
   AccountRegistrationContainer,
@@ -11,12 +12,20 @@ const isDev = import.meta.env.DEV;
 const API_URL = isDev ? VITE_BUCKETLAB_API_DEV : VITE_BUCKETLAB_API_PROD;
 
 export default function AccountRegistrationForm() {
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm();
+
+  useEffect(() => {
+    if (error) {
+      ErrorPage(error);
+    }
+  }, [error]);
+
 
   const submitForm = async (values) => {
     console.log('API_URL: ', API_URL);
@@ -29,13 +38,17 @@ export default function AccountRegistrationForm() {
     })
     .then((res) => res.json())
     .then((res) => {
+      if (res.status === 'fail') {
+        return setError(() => res);
+      };
+
       const { first_name, email, _id } = res.data;
       navigate('/homelab/login', {
         state: { first_name, email, _id }
       });
     })
     .catch((err) => {
-      ErrorPage(err);
+      setError(() => err);
     });
   };
   

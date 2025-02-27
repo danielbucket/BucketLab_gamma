@@ -1,26 +1,27 @@
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { HomeLabContainer, ModalWrapper, ContentWrapper } from './index.styled.js'
-import { fakeLoaderData } from './stub.js'
-import importedImage from '../../assets/images/laboratory_01.jpeg'
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { HomeLabContainer, ModalWrapper, ContentWrapper } from './index.styled.js';
+import { fakeLoaderData } from './stub.js';
+import importedImage from '../../assets/images/laboratory_01.jpeg';
 
 export default function HomeLab() {
-  const [pageText, setPageText] = useState('')
-  const [pageImage, setPageImage] = useState()
-  const [login, setLogin] = useState(false)
-  const loaderData = fakeLoaderData()
+  const [pageText, setPageText] = useState('');
+  const [pageImage, setPageImage] = useState();
+  const [login, setLogin] = useState(false);
 
-  const navigate = useNavigate()
+  const loaderData = fakeLoaderData();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    setPageImage(() => importedImage)
-    setPageText(() => loaderData.text)
-  }, [])
+    setPageImage(() => importedImage);
+    setPageText(() => loaderData.text);
+  }, []);
 
   const handleClick = () => {
-    setLogin(true)
-    navigate('/homelab/login')
-  }
+    setLogin(true);
+    navigate('/homelab/login');
+  };
 
   return (
     <>
@@ -33,5 +34,5 @@ export default function HomeLab() {
         </ContentWrapper>
       </HomeLabContainer>
     </>
-  )
-}
+  );
+};
