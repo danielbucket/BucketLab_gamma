@@ -15,7 +15,7 @@ export default function Cubicle() {
         </Sidebar>
         <Content className='cubicle-content'>
           <h2>What's on your mind?</h2>
-          <p>Write a note, or draw a picture. It's your space.</p>
+          <p>Write a note, or draw a picture with letters. It's your space.</p>
         </Content>
       </StyledCubicle>
     </>

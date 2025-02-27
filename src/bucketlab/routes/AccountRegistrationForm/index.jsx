@@ -5,7 +5,10 @@ import {
   AccountRegistrationWrapper,
   StyledForm } from './index.styled';
 import ErrorPage from '../ErrorPage';
-const { VITE_BUCKETLAB_SERVER } = import.meta.env ;
+
+const { VITE_BUCKETLAB_API_DEV, VITE_BUCKETLAB_API_PROD } = import.meta.env;
+const isDev = import.meta.env.DEV;
+const API_URL = isDev ? VITE_BUCKETLAB_API_DEV : VITE_BUCKETLAB_API_PROD;
 
 export default function AccountRegistrationForm() {
   const navigate = useNavigate();
@@ -16,7 +19,8 @@ export default function AccountRegistrationForm() {
   } = useForm();
 
   const submitForm = async (values) => {
-    await fetch(`${VITE_BUCKETLAB_SERVER}/accounts`, {
+    console.log('API_URL: ', API_URL);
+    await fetch(`${API_URL}/accounts`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,13 +29,13 @@ export default function AccountRegistrationForm() {
     })
     .then((res) => res.json())
     .then((res) => {
-      const { first_name, email, _id } = res.data
+      const { first_name, email, _id } = res.data;
       navigate('/homelab/login', {
         state: { first_name, email, _id }
-      })
+      });
     })
     .catch((err) => {
-      ErrorPage(err)
+      ErrorPage(err);
     });
   };
   

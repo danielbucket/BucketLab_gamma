@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { LoginContainer, LoginWrapper, StyledForm } from './index.styled';
 
-const { VITE_BUCKETLAB_SERVER } = import.meta.env;
+const { VITE_BUCKETLAB_API_DEV, VITE_BUCKETLAB_API_PROD } = import.meta.env;
+const isDev = import.meta.env.DEV;
+const API_URL = isDev ? VITE_BUCKETLAB_API_DEV : VITE_BUCKETLAB_API_PROD;
 
 export default function Login() {
   const [registerSuccess, setRegisterSuccess] = useState(false);
@@ -26,7 +28,7 @@ export default function Login() {
   }, [location.state]);
 
   const submitForm = (values) => {
-    fetch(`${VITE_BUCKETLAB_SERVER}/accounts/login`, {
+    fetch(`${API_URL}/accounts/login`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

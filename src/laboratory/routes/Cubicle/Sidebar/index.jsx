@@ -1,4 +1,4 @@
-import{ StyledSidebar } from './index.styled'
+import { StyledSidebar } from './index.styled';
 
 export default function Sidebar() {
   return (
@@ -6,5 +6,5 @@ export default function Sidebar() {
       <h1>Virtual Cubicle</h1>
       <p>Do some work, or don't. It's up to you.</p>
     </StyledSidebar>
-  )
-}
+  );
+};

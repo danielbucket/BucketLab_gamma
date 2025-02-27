@@ -2,7 +2,7 @@ import { useRouteError } from 'react-router-dom';
 import { ErrorPageWrapper } from './index.styled';
 
 export default function ErrorPage() {
-  const errorData = useRouteError()
+  const errorData = useRouteError();
 
   return (
     <ErrorPageWrapper>
@@ -11,4 +11,4 @@ export default function ErrorPage() {
       {errorData.message && <p>{errorData.message}</p>}
     </ErrorPageWrapper>
   );
-}
+};
