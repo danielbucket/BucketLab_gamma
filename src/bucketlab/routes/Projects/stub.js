@@ -1,9 +1,9 @@
 export const repotList = [
   {
-    repo: 'BucketLab Server',
-    url: '',
-    description: 'A server for a home IoT system. It will be a RESTful API.',
-    techstack: ['Node.js', 'Express.js', 'Knex.js', 'PostgreSQL', 'Raspberry Pi'],
+    repo: 'BucketLab API',
+    url: 'https://github.com/danielbucket/BucketLab_api',
+    description: 'An RESTful API used to power the BucketLab.io web app.',
+    techstack: ['NodeJS', 'ExpressJS', 'MongooseJS', 'MongoDB', 'Docker', 'RaspberryPi'],
   },
   {
     repo: 'SpinConnect',
