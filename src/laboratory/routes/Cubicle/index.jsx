@@ -1,11 +1,8 @@
-import { useState, useEffect } from 'react'
-import { StyledCubicle } from './index.styled'
-import Sidebar from './SideBar'
-import Content from './Content'
-
+import { StyledCubicle } from './index.styled';
+import Sidebar from './SideBar';
+import Content from './Content';
 
 export default function Cubicle() {
-
   return (
     <>
       <StyledCubicle>
@@ -19,5 +16,5 @@ export default function Cubicle() {
         </Content>
       </StyledCubicle>
     </>
-  )
-}
+  );
+};
