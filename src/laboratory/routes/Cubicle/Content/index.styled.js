@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledContent = styled.div`
   flex-grow: 1;
@@ -44,5 +44,4 @@ export const StyledContent = styled.div`
     & a {
       text-decoration: underline;
   }
-
-`
+`;

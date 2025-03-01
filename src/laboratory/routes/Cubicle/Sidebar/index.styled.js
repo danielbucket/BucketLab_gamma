@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledSidebar = styled.div`
   display: flex;
@@ -8,9 +8,14 @@ export const StyledSidebar = styled.div`
   height: 100%;
   width: 20rem;
   border-right: 0.1rem solid #EEE;
-  
-  & h1 {
+
+  h1 {
     font-size: 2rem;
     font-family: Orbitron;
   }
-`
+
+  p {
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+  }
+`;

@@ -6,8 +6,8 @@ export default function Cubicle() {
   return (
     <>
       <StyledCubicle>
-        <Sidebar className='cubicle-sidebar' />
-        <Content className='cubicle-content'/>
+        <Sidebar />
+        <Content />
       </StyledCubicle>
     </>
   );

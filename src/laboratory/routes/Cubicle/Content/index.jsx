@@ -4,7 +4,7 @@ import { StyledContent } from './index.styled'
 export default function Content() {
 
   return (
-    <StyledContent className='cubicle-content'>
+    <StyledContent>
       <div className='header'>
         <h2>You've made it this far!</h2>
         <p>Coming soon to a Cubicle near you...</p>
