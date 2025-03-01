@@ -1,6 +1,7 @@
 import { StyledSidebar } from './index.styled';
 
 export default function Sidebar() {
+
   return (
     <StyledSidebar>
       <h1>Virtual Cubicle</h1>
