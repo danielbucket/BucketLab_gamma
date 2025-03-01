@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { StyledDashboard } from './index.styled';
 
-const { VITE_BUCKETLAB_SERVER } = import.meta.env;
+const { VITE_BUCKETLAB_API_DEV, VITE_BUCKETLAB_API_PROD } = import.meta.env;
+const isDev = import.meta.env.DEV;
+const API_URL = isDev ? VITE_BUCKETLAB_API_DEV : VITE_BUCKETLAB_API_PROD;
 
 export default function LaboratoryDashboard() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -11,7 +13,6 @@ export default function LaboratoryDashboard() {
   
   const navigate = useNavigate();
   const location = useLocation();
-
   
   useEffect(() => {
     const { data } = location.state;
@@ -25,23 +26,25 @@ export default function LaboratoryDashboard() {
     };
   }, [location.state]);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    const { email } = userProfile;
+  const handleClick = () => {
+    const { _id } = userProfile;
 
-    fetch(`${VITE_BUCKETLAB_SERVER}/account/logout`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email })
+    fetch(`${API_URL}/accounts/logout/:${_id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' }
     })
     .then((res) => res.json())
     .then((res) => {
-      const { message } = res;
+      if (res.status === 'fail') {
+        return console.error('ERROR: ', res);
+      };
+
+      setLoggedIn(() => false);
+      setPermissions(() => {});
+      setUserProfile(() => {});
 
       navigate('/homelab/login', {
-        state: { message }
+        state: { ...res.message }
       });
     });
   };

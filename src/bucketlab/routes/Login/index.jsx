@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { LoginContainer, LoginWrapper, StyledForm } from './index.styled';
@@ -8,9 +8,10 @@ const isDev = import.meta.env.DEV;
 const API_URL = isDev ? VITE_BUCKETLAB_API_DEV : VITE_BUCKETLAB_API_PROD;
 
 export default function Login() {
-  const [registerSuccess, setRegisterSuccess] = useState(false);
+  const [isNew, setIsNew] = useState(null);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [email, setEmail] = useState('');
 
   const {
     register,
@@ -21,9 +22,16 @@ export default function Login() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.state?.registerSuccess == true && location.state?.email) {
-      setRegisterSuccess(() => location.state.registerSuccess);
-      setMessage(() => location.state.message);
+    if (location.state?.isNew) {
+      setIsNew(() => location.state.isNew);
+      setEmail(() => location.state.email);
+      setMessage(() => `An account with the email ${location.state.email} has been created.`);
+    };
+
+    if (!location.state?.isNew && location.state?.email) {
+      setIsNew(() => false);
+      setEmail(() => location.state.email);
+      setMessage(() => `An account with the email ${location.state.email} already exists.`);
     }
   }, [location.state]);
 
@@ -37,16 +45,21 @@ export default function Login() {
     })
     .then((res) => res.json())
     .then((res) => {
-      if (res.status === 'fail') {
-        return setError(() => res);
+      if (res.status === 'fail' && res.fail_type === 'not_found') {
+        setMessage(() => res.message);
+        return;
       };
-
+      console.log('saved: ', res);
+      if (res.status === 'fail' && res.fail_type === 'incorrect_password') {
+        setMessage(() => res.message);
+        return;
+      };
+      
       navigate('/laboratory', {
         state: res
       });
     })
     .catch((err) => {
-      console.error('ERROR: ', err);
       setError(() => err);
     });
   };
@@ -56,7 +69,7 @@ export default function Login() {
       <LoginContainer>
         <LoginWrapper>
           <StyledForm onSubmit={(handleSubmit((values) => submitForm(values)))}>
-            { registerSuccess && <p>{message}</p> }
+            { isNew !== null && <p>{message}</p> }
             <div className='fields-container'>
               <div className='form-field'>
                 <div>
@@ -71,6 +84,7 @@ export default function Login() {
                       message: 'Please enter a valid email.'
                     }
                   })}
+                  defaultValue={email !== '' ? email : ''}
                   placeholder='Email'
                 />
               </div>
