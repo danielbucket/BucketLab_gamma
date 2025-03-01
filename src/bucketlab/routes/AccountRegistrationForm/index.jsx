@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { set, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import EmailError from './EmailError';
 import {
   AccountRegistrationContainer,
   AccountRegistrationWrapper,
   StyledForm } from './index.styled';
-import ErrorPage from '../ErrorPage';
 
 const { VITE_BUCKETLAB_API_DEV, VITE_BUCKETLAB_API_PROD } = import.meta.env;
 const isDev = import.meta.env.DEV;
@@ -20,15 +20,7 @@ export default function AccountRegistrationForm() {
     formState: { errors }
   } = useForm();
 
-  useEffect(() => {
-    if (error) {
-      ErrorPage(error);
-    }
-  }, [error]);
-
-
   const submitForm = async (values) => {
-    console.log('API_URL: ', API_URL);
     await fetch(`${API_URL}/accounts`, {
       method: 'POST',
       headers: {
@@ -56,6 +48,7 @@ export default function AccountRegistrationForm() {
     <>
       <AccountRegistrationContainer>
         <AccountRegistrationWrapper>
+          {error && <EmailError email={error.data.email} />}
           <StyledForm onSubmit={(handleSubmit((values) => {
             submitForm(values)
           }))}>

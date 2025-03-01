@@ -21,10 +21,10 @@ export default function Login() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.state?.registerSuccess == true && location.state?.email) {
+    if (location.state?.email) {
       setRegisterSuccess(() => location.state.registerSuccess);
       setMessage(() => location.state.message);
-    }
+    };
   }, [location.state]);
 
   const submitForm = (values) => {
