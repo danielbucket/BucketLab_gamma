@@ -1,6 +1,6 @@
 import { StyledCubicle } from './index.styled';
-import Sidebar from './SideBar/index.jsx';
-import Content from './Content/index.jsx';
+import Sidebar from '../SideBar';
+import Content from '../Content';
 
 export default function Cubicle() {
   return (
