@@ -9,7 +9,7 @@ console.log('import.meta: ', import.meta);
 const { VITE_BUCKETLAB_API_DEV } = import.meta.env;
 
 const isDev = import.meta.env.DEV;
-const API_URL = isDev ? VITE_BUCKETLAB_API_DEV : 'https://api.bucketlab.io/v1';
+const API_URL = isDev ? VITE_BUCKETLAB_API_DEV : 'https://bucketlab.io/v1';
 
 export default function Login() {
   const [isNew, setIsNew] = useState(null);
