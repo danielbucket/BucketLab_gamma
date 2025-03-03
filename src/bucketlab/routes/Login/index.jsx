@@ -7,7 +7,7 @@ const { VITE_BUCKETLAB_API_DEV, VITE_BUCKETLAB_API_PROD } = import.meta.env;
 const isDev = import.meta.env.DEV;
 const API_URL = isDev ? VITE_BUCKETLAB_API_DEV : VITE_BUCKETLAB_API_PROD;
 
-console.log('API_URL: ', API_URL);
+console.log('API_URL: ', process.env);
 
 export default function Login() {
   const [isNew, setIsNew] = useState(null);
@@ -51,7 +51,7 @@ export default function Login() {
         setMessage(() => res.message);
         return;
       };
-      
+
       if (res.status === 'fail' && res.fail_type === 'incorrect_password') {
         setMessage(() => res.message);
         return;
