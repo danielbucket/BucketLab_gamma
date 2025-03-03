@@ -45,7 +45,7 @@ export default function Login() {
       method: 'PATCH',
       origin: 'https://bucketlab.io',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({ ...values })
     })
