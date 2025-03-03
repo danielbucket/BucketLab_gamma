@@ -7,7 +7,7 @@
     "dev": "NODE_ENV=development vite",
     "build": "NODE_ENV=production vite build",
     "lint": "eslint .",
-    "deploy": "npm run build && wrangler pages deploy ./dist"
+    "deploy": "wrangler pages deploy ./dist"
   },
   "dependencies": {
     "cors": "^2.8.5",
