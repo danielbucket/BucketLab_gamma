@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom'
-import { StyledContent } from './index.styled'
+import { Link } from 'react-router-dom';
+import { StyledContent } from './index.styled';
 
 export default function Content() {
-
   return (
     <StyledContent>
       <div className='header'>
@@ -22,5 +21,5 @@ export default function Content() {
         <p>Remember, I can still be contacted via <Link to='https://www.linkedin.com/in/daniel-ludwick/'>LinkedIn</Link></p>
       </div>
     </StyledContent>
-  )
-}
+  );
+};
