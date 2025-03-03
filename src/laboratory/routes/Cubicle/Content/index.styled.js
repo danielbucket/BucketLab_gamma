@@ -16,7 +16,7 @@ export const StyledContent = styled.div`
       font-size: 2.5rem;
       font-family: Orbitron;
       text-align: center;
-      margin-bottom: 10rem;
+      margin-bottom: 5rem;
     }
   
     & p {
@@ -26,6 +26,22 @@ export const StyledContent = styled.div`
       width: 90%;
       margin: 2rem auto;
       text-align: center;
+    }
+  }
+
+  .development-update {
+    font-size: 1.5rem;
+    font-family: Ubuntu_Reg;
+    text-align: start;
+    width: 90%;
+    margin: 1.25rem auto;
+
+    & p::first-letter {
+      font-size: 1.75rem;
+      font-weight: bold;
+      text-indent: 1rem;
+    }
+      // margin-bottom: 1.25rem;
     }
   }
 

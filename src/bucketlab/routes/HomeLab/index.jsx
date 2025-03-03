@@ -7,10 +7,8 @@ import importedImage from '../../assets/images/laboratory_01.jpeg';
 export default function HomeLab() {
   const [pageText, setPageText] = useState('');
   const [pageImage, setPageImage] = useState();
-  const [login, setLogin] = useState(false);
 
   const loaderData = fakeLoaderData();
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,8 +17,11 @@ export default function HomeLab() {
   }, []);
 
   const handleClick = () => {
-    setLogin(true);
-    navigate('/homelab/login');
+    navigate('/homelab/login',
+      {
+        state: { isNew: false }
+      }
+    );
   };
 
   return (
