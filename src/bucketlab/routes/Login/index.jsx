@@ -7,7 +7,9 @@ const { VITE_BUCKETLAB_API_DEV, VITE_BUCKETLAB_API_PROD } = import.meta.env;
 const isDev = import.meta.env.DEV;
 const API_URL = isDev ? VITE_BUCKETLAB_API_DEV : VITE_BUCKETLAB_API_PROD;
 
-console.log('API_URL: ', process.env);
+console.log('import.meta.env: ', import.meta.env);
+console.log('import.meta: ', import.meta);
+
 
 export default function Login() {
   const [isNew, setIsNew] = useState(null);
