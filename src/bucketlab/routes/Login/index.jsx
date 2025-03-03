@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { LoginContainer, LoginWrapper, StyledForm } from './index.styled';
 
-const { VITE_BUCKETLAB_API_DEV, VITE_BUCKETLAB_API_PROD } = import.meta.env;
-const isDev = import.meta.env.DEV;
-const API_URL = isDev ? VITE_BUCKETLAB_API_DEV : VITE_BUCKETLAB_API_PROD;
-
 console.log('import.meta.env: ', import.meta.env);
 console.log('import.meta: ', import.meta);
 
+const { VITE_BUCKETLAB_API_DEV, VITE_BUCKETLAB_API_PROD } = import.meta.env;
+
+const isDev = import.meta.env.DEV;
+const API_URL = isDev ? VITE_BUCKETLAB_API_DEV : VITE_BUCKETLAB_API_PROD;
 
 export default function Login() {
   const [isNew, setIsNew] = useState(null);
