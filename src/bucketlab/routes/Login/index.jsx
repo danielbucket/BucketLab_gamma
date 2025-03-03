@@ -42,7 +42,7 @@ export default function Login() {
 
   const submitForm = (values) => {
     fetch(`${API_URL}/accounts/login`, {
-      method: 'PATCH',
+      method: 'POST',
       origin: 'https://bucketlab.io',
       headers: {
         'Content-Type': 'application/json'
