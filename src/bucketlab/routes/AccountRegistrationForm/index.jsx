@@ -40,13 +40,13 @@ export default function AccountRegistrationForm() {
     })
     .then((res) => res.json())
     .then((res) => {
-      if (res.status === 'fail') {
+      if (res.status !== 'success') {
         return setError(() => res);
       };
 
       const { first_name, email, _id } = res.data;
       navigate('/homelab/login', {
-        state: { 
+        state: {
           isNew: true,
           first_name,
           email,
