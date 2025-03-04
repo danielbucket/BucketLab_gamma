@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { set, useForm } from 'react-hook-form';
+import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import EmailError from './EmailError';
 import {
@@ -7,18 +7,28 @@ import {
   AccountRegistrationWrapper,
   StyledForm } from './index.styled';
 
-const { VITE_BUCKETLAB_API_DEV, VITE_BUCKETLAB_API_PROD } = import.meta.env;
-const isDev = import.meta.env.DEV;
-const API_URL = isDev ? VITE_BUCKETLAB_API_DEV : VITE_BUCKETLAB_API_PROD;
+  const { VITE_BUCKETLAB_API_DEV_URL } = import.meta.env;
+  const isDev = import.meta.env.DEV || false;
+  const API_URL = isDev ? VITE_BUCKETLAB_API_DEV_URL : 'https://api.bucketlab.io/api/v1';
 
 export default function AccountRegistrationForm() {
   const [error, setError] = useState(null);
+  const [message, setMessage] = useState('');
+  
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm();
+
+  useEffect(() => {
+    if (error?.fail_type === 'server_error') {
+      setError(() => 'There was an error with the server. Please try again later.');
+      throw new Error();
+    };
+    setMessage(() => error?.message);
+  }, [error]);
 
   const submitForm = async (values) => {
     await fetch(`${API_URL}/accounts`, {
@@ -36,7 +46,12 @@ export default function AccountRegistrationForm() {
 
       const { first_name, email, _id } = res.data;
       navigate('/homelab/login', {
-        state: { first_name, email, _id }
+        state: { 
+          isNew: true,
+          first_name,
+          email,
+          _id 
+        }
       });
     })
     .catch((err) => {
@@ -48,7 +63,8 @@ export default function AccountRegistrationForm() {
     <>
       <AccountRegistrationContainer>
         <AccountRegistrationWrapper>
-          {error && <EmailError email={error.data.email} />}
+          {/* {error?.data.email && <EmailError email={error.data.email} />} */}
+          {message && <EmailError email={error.data.email} />}
           <StyledForm onSubmit={(handleSubmit((values) => {
             submitForm(values)
           }))}>

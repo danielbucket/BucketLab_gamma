@@ -1,12 +1,12 @@
-import Root from './routes/Root'
-import Home from './routes/Home'
-import Login from './routes/Login'
-import About from './routes/About'
-import Contact from './routes/Contact'
-import HomeLab from './routes/HomeLab'
-import Projects from './routes/Projects'
-import ErrorPage from './routes/ErrorPage'
-import AccountRegistrationForm from './routes/AccountRegistrationForm'
+import Root from './routes/Root';
+import Home from './routes/Home';
+import Login from './routes/Login';
+import About from './routes/About';
+import Contact from './routes/Contact';
+import HomeLab from './routes/HomeLab';
+import Projects from './routes/Projects';
+import ErrorPage from './routes/ErrorPage';
+import AccountRegistrationForm from './routes/AccountRegistrationForm';
 
 export const router =  {
     path: '/',
@@ -18,33 +18,33 @@ export const router =  {
         children: [
           {
             index: true,
-            element: <Home />,
+            element: <Home />
           },
           {
             path: 'about',
-            element: <About />,
+            element: <About />
           },
           {
             path: 'contact',
-            element: <Contact />,
+            element: <Contact />
           },
           {
             path: 'projects',
-            element: <Projects />,
+            element: <Projects />
           },
           {
             path: 'homelab',
-            element: <HomeLab />,
+            element: <HomeLab />
           },
           {
             path: 'homelab/login',
-            element: <Login />,
+            element: <Login />
           },
           {
             path: 'homelab/register',
-            element: <AccountRegistrationForm />,
+            element: <AccountRegistrationForm />
           }
         ]
       }
     ]
-  }
+  };
