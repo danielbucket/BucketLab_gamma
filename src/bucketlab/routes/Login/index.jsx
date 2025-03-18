@@ -5,7 +5,7 @@ import { LoginContainer, LoginWrapper, StyledForm } from './index.styled';
 
 const { VITE_BUCKETLAB_API_DEV_URL } = import.meta.env;
 const isDev = import.meta.env.DEV || false;
-const API_URL = isDev ? VITE_BUCKETLAB_API_DEV_URL : 'https://bucketlab.io/api/v1';
+const API_URL = isDev ? VITE_BUCKETLAB_API_DEV_URL : 'https://api.bucketlab.io/api/v1';
 
 export default function Login() {
   const [isNew, setIsNew] = useState(null);
