@@ -5,7 +5,7 @@ import { StyledDashboard } from './index.styled';
 const { VITE_BUCKETLAB_API_DEV_URL } = import.meta.env;
 const isDev = import.meta.env.DEV || false;
 const API_URL = isDev ? VITE_BUCKETLAB_API_DEV_URL : 'https://api.bucketlab.io/api/v1';
-
+console.log('API_URLllzz', API_URL);
 export default function LaboratoryDashboard() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [permissions, setPermissions] = useState({});
