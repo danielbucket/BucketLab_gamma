@@ -29,7 +29,7 @@ export const ModalContainer = styled.div`
 
   #modalImage {
     border-radius: .5rem;
-    box-shadow: 0 0 .5rem .25rem #0E66F0EB;
+    box-shadow: 0 0 .25rem .25rem #0E66F0EB;
     width: 100%;
     max-width: 40rem;
     margin: auto;

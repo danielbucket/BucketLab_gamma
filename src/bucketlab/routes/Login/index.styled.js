@@ -8,7 +8,6 @@ export const StyledForm = styled(FormStyle)`
     font-family: Ubuntu_Reg;
     color: var(--special-green);
     text-align: center;
-    
   }
 `
 export const LoginContainer = styled(BasePageLayout)``

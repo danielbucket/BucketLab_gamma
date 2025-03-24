@@ -10,7 +10,7 @@ export const ContentWrapper = styled(ContentContainer)`
     background-color: var(--special-blue);
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
-    box-shadow: 0 0 0.5rem 0.25rem #0E66F0Eb;
+    box-shadow: 0 0 0.25rem 0.25rem #0E66F0Eb;
     width: 20rem;
     height: 10rem;
     transition: background-color 0.5s, color 0.5s, border-radius 0.5s, box-shadow 0.5s;

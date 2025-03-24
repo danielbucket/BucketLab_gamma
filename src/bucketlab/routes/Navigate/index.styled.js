@@ -6,10 +6,10 @@ export const NavContainer = styled.nav`
   flex-direction: column;
   align-items: center;
   height: 10rem;
-  padding: 0.5rem 0.25rem;
+  padding: 0.75rem 0.25rem;
   margin-bottom: 0.5rem;
   font-family: Ubuntu_Reg;
-  box-shadow: 0 0 .5rem .25rem #0e66f0eb;
+  box-shadow: 0 0 .15rem .25rem #0e66f0eb;
   background-color: var(--special-blue);
 
   .title {
