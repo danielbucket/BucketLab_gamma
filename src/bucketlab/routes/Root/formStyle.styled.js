@@ -12,7 +12,7 @@ export const FormStyle = styled('form')`
   border: 0.1rem solid var(--special-blue);
   border-radius: 0.5rem;
   background-color: var(--special-blue);
-  box-shadow: 0 0 0.5rem 0.25rem var(--special-blue);
+  box-shadow: 0 0 0.25rem 0.25rem var(--special-blue);
 
   & .fields-container {
     flex-grow: 1;
