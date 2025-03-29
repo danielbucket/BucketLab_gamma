@@ -9,7 +9,7 @@ import {
 
   const { VITE_API_V1_URL } = import.meta.env;
   const isDev = import.meta.env.DEV || false;
-  const API_URL = isDev ? VITE_API_V1_URL;
+  const API_URL = isDev ? VITE_API_V1_URL : null;
   console.log('API_URL @ REGISTRATION: ', API_URL);
 
 export default function AccountRegistrationForm() {
