@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { LoginContainer, LoginWrapper, StyledForm } from './index.styled';
 
-const { VITE_BUCKETLAB_API_DEV_URL, API_PROD_URL } = import.meta.env;
+const { VITE_BUCKETLAB_API_DEV_URL, VITE_API_PROD_URL } = import.meta.env;
 const isDev = import.meta.env.DEV || false;
 // const API_URL = isDev ? VITE_BUCKETLAB_API_DEV_URL : 'https://api.bucketlab.io/v1';
 const API_URL = isDev ? VITE_BUCKETLAB_API_DEV_URL : VITE_API_PROD_URL;
