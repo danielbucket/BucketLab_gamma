@@ -9,7 +9,9 @@ import {
 
   const { VITE_BUCKETLAB_API_DEV_URL } = import.meta.env;
   const isDev = import.meta.env.DEV || false;
-  const API_URL = isDev ? VITE_BUCKETLAB_API_DEV_URL : 'https://api.bucketlab.io/v1';
+  // const API_URL = isDev ? VITE_BUCKETLAB_API_DEV_URL : 'https://api.bucketlab.io/v1';
+  const API_URL = isDev ? VITE_BUCKETLAB_API_DEV_URL : API_PROD_URL;
+  console.log('API_URL @ REGISTRATION: ', API_URL);
 
 export default function AccountRegistrationForm() {
   const [error, setError] = useState(null);
