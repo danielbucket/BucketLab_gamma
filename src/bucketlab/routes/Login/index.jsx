@@ -4,14 +4,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { LoginContainer, LoginWrapper, StyledForm } from './index.styled';
 
 const { VITE_API_V1_URL_DEV, VITE_API_V1_URL_PROD } = import.meta.env;
-console.log('VITE_API_V1_URL_DEV', VITE_API_V1_URL_DEV);
-console.log('VITE_API_V1_URL_PROD', VITE_API_V1_URL_PROD);
-
 const isDev = import.meta.env.DEV || false;
 const API_URL = isDev ? VITE_API_V1_URL_DEV : VITE_API_V1_URL_PROD;
-
-console.log('isDev', isDev);
-console.log('API_URL @ LOGIN: ', API_URL);
 
 export default function Login() {
   const [isNew, setIsNew] = useState(null);
