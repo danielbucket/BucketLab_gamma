@@ -10,7 +10,6 @@ import {
   const { VITE_API_V1_URL, VITE_API_V1_URL_PROD } = import.meta.env;
   const isDev = import.meta.env.DEV || false;
   const API_URL = isDev ? VITE_API_V1_URL : VITE_API_V1_URL_PROD;
-  console.log('API_URL @ ACCOUNT REGISTRATION: ', API_URL);
 
 export default function AccountRegistrationForm() {
   const [error, setError] = useState(null);
