@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { LoginContainer, LoginWrapper, StyledForm } from './index.styled';
 
-const { VITE_API_V1_URL } = import.meta.env;
+const { VITE_API_V1_URL, VITE_API_V1_URL_PROD } = import.meta.env;
 const isDev = import.meta.env.DEV || false;
-const { API_PROD_URL } = process.env;
-const API_URL = isDev ? VITE_API_V1_URL : API_PROD_URL;
+const API_URL = isDev ? VITE_API_V1_URL : VITE_API_V1_URL_PROD;
+
 console.log('isDev', isDev);
 console.log('API_URL @ LOGIN: ', API_URL);
 

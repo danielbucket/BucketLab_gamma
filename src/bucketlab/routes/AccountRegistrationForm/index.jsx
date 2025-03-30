@@ -7,10 +7,9 @@ import {
   AccountRegistrationWrapper,
   StyledForm } from './index.styled';
 
-  const { VITE_API_V1_URL } = import.meta.env;
+  const { VITE_API_V1_URL, VITE_API_V1_URL_PROD } = import.meta.env;
   const isDev = import.meta.env.DEV || false;
-  const { API_PROD_URL } = process.env;
-  const API_URL = isDev ? VITE_API_V1_URL : API_PROD_URL;
+  const API_URL = isDev ? VITE_API_V1_URL : VITE_API_V1_URL_PROD;
 
 export default function AccountRegistrationForm() {
   const [error, setError] = useState(null);
