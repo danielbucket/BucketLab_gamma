@@ -5,6 +5,7 @@ import { LoginContainer, LoginWrapper, StyledForm } from './index.styled';
 
 const { VITE_API_V1_URL } = import.meta.env;
 const isDev = import.meta.env.DEV || false;
+const { API_URL } = process.env;
 const API_URL = isDev ? VITE_API_V1_URL : null;
 console.log('isDev', isDev);
 console.log('API_URL @ LOGIN: ', API_URL);
