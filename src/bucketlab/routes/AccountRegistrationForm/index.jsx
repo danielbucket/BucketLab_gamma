@@ -9,8 +9,8 @@ import {
 
   const { VITE_API_V1_URL } = import.meta.env;
   const isDev = import.meta.env.DEV || false;
-  const API_URL = isDev ? VITE_API_V1_URL : null;
-  console.log('API_URL @ REGISTRATION: ', API_URL);
+  const { API_PROD_URL } = process.env;
+  const API_URL = isDev ? VITE_API_V1_URL : API_PROD_URL;
 
 export default function AccountRegistrationForm() {
   const [error, setError] = useState(null);
