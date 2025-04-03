@@ -2,14 +2,15 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { StyledDashboard } from './index.styled';
 
-const { VITE_BUCKETLAB_API_DEV_URL } = import.meta.env;
+const { VITE_API_V1_URL_DEV, VITE_API_V1_URL_PROD } = import.meta.env;
 const isDev = import.meta.env.DEV || false;
-const API_URL = isDev ? VITE_BUCKETLAB_API_DEV_URL : 'https://api.bucketlab.io/v1';
+const API_URL = isDev ? VITE_API_V1_URL_DEV : VITE_API_V1_URL_PROD;
 
 export default function LaboratoryDashboard() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [permissions, setPermissions] = useState({});
   const [userProfile, setUserProfile] = useState({});
+  const [token, setToken] = useState({});
   
   const navigate = useNavigate();
   const location = useLocation();
@@ -18,11 +19,16 @@ export default function LaboratoryDashboard() {
     const { data } = location.state;
 
     if (data.logged_in) {
-      const { logged_in, permissions } = data;
+      const { first_name, permissions, logged_in, login_count, _id, token } = data;
 
+      setToken(() => token);
       setLoggedIn(() => logged_in);
-      setUserProfile(() => data);
       setPermissions(() => permissions);
+      setUserProfile(() => Object.assign({}, {
+        first_name,
+        login_count,
+        _id
+      }));
     };
   }, [location.state]);
 
@@ -35,13 +41,13 @@ export default function LaboratoryDashboard() {
     })
     .then((res) => res.json())
     .then((res) => {
-      if (res.status === 'fail') {
+      if (res.status !== 'success') {
         return console.error('ERROR: ', res);
       };
 
-      setLoggedIn(() => false);
       setPermissions(() => {});
       setUserProfile(() => {});
+      setLoggedIn(() => false);
 
       navigate('/homelab/login', {
         state: { ...res.message }

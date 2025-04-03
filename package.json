@@ -3,6 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://bucketlab.io",
+  "author": "Bucketlab",
+  "license": "MIT",
+  "description": "Bucketlab Gamma - A personal portfolio site for Bucketlab.",
+  "keywords": [
+    "bucketlab",
+    "portfolio"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielbucket/BucketLab_gamma.git"
+  },
   "scripts": {
     "dev": "NODE_ENV=development vite",
     "build": "NODE_ENV=production vite build",
